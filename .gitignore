@@ -33,3 +33,7 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
+#config数据库配置文件
+/common/config/main-local.php
+/dbv-1.1/config.php
