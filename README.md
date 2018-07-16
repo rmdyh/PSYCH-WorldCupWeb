@@ -1,15 +1,26 @@
 
 一个世界杯信息网站页面
 ===============================
-
 数据库信息：  
 数据库名称 PSYCH-WorldCupWeb  
-数据库编码方式 utf8_general_ci
+数据库编码方式 utf8_general_ci  
 
-数据库配置文件信息
+数据库版本控制
 ===============================
-yii连接至数据库：PSYCH-WorldCupWeb\common\config\main-local.php  
-数据库版本控制：PSYCH-WorldCupWeb\dbv-1.1\config.php
+版本控制界面：http://localhost/PSYCH-WorldCupWeb/dbv-1.1/  
+数据库版本控制配置文件：PSYCH-WorldCupWeb\dbv-1.1\config.php  
+
+Yii安装流程
+===============================
+1、下载文件  
+2、运行 "init.bat" 命令，选择开发环境  
+    (Development:开发环境; Production:生产环境);  
+3、执行yii初始化命令 "yii.bat";  
+4、新建数据库，并修改数据库配置  
+    "\common\config\main-local.php";  
+5、创建相应的数据表，执行命令 "yii.bat migrate";  
+6、前台访问页面 http://localhost/advanced/frontend/web/;  
+   后台访问页面 http://localhost/advanced/backend/web/;  
 
 Yii 2 Advanced Project Template
 ===============================
@@ -66,3 +77,7 @@ frontend
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
 ```
+
+开发者名单
+===============================
+卢政先  
