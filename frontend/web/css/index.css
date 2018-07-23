@@ -42,3 +42,29 @@
     color: #ccc;
     content: "|";
 }
+
+.thumbnail{
+    display: flex;
+}
+
+.thumbnail img{
+    flex: 1;
+}
+
+.thumbnail .caption{
+    flex: 2;
+    margin-left: 30px;
+    padding-bottom: 20px;
+}
+
+.thumbnail .caption h3{
+    margin: 10px 0 0;
+}
+.thumbnail .caption .caption-title{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.thumbnail .caption hr{
+    margin-top: 10px;
+}
