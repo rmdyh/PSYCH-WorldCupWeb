@@ -8,6 +8,7 @@
 数据库版本控制
 ===============================
 版本控制界面：http://localhost/PSYCH-WorldCupWeb/dbv-1.1/  
+用户名、密码：dbv
 数据库版本控制配置文件：PSYCH-WorldCupWeb\dbv-1.1\config.php  
 
 Yii安装流程
