@@ -212,4 +212,9 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionSchedule()
+    {
+        return $this->render('schedule');
+    }
 }

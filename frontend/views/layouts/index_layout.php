@@ -76,7 +76,7 @@ AppAsset::register($this);
                     <a href="./">最新动态</a>
                 </li>
                 <li>
-                    <a href="./">赛程</a>
+                    <a href="./index.php?r=site%2Fschedule">赛程</a>
                 </li>
                 <li>
                     <a href="./">球队一览</a>
