@@ -43,18 +43,36 @@
     content: "|";
 }
 
+.thumbnail{
+    height: 189.6px;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+.thumbnail:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px;
+    border-color: #fff;
+}
+
 .thumbnail img{
     padding: 0;
+    height: 180px;
+    position: absolute;
+    vertical-align:top;
+    width: 320px;
 }
 
 .thumbnail .caption{
     overflow: hidden;
+    margin-left: 320px;
+    height: 100%;
+    padding-left: 3%;
 }
 
 .thumbnail .caption h3{
-    margin: 10px 0 0;
+    margin: 3px 0 0;
     text-overflow: ellipsis;
     overflow: hidden;
+    pointer-events: none;
 }
 .thumbnail .caption .caption-title{
     white-space: nowrap;
@@ -62,11 +80,63 @@
 .thumbnail .caption hr{
     margin-top: 10px;
 }
-
-.clear{
-    clear: both;
+.text-overflow::after{
+    content: '...';
+}
+.text-overflow p {
+    margin: 0 0 10px;
+    max-height: 5.6em;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    pointer-events: none;
 }
 
+.time-bar{
+    position: relative;
+    padding: 10px 0;
+}
+.time-bar hr{
+    width: 80%;
+}
+.time-bar span{
+    color: #888;
+    position: absolute;
+    top: 20px;
+    background-color: #fff;
+    padding: 0 10px;
+    right: 50%;
+    margin-right: -72px;
+    pointer-events: none;
+}
+
+.link-big{
+    font-size: 120%;
+    padding:20px 0;
+    cursor: pointer;
+}
+.link-big a,.link-big a:hover,.link-big a:focus{
+    text-decoration: none;
+}
+.text-right{
+    text-align: right;
+}
+
+.footer{
+    margin-top: 40px;
+}
+
+.wrap > .container{
+    padding-top: 40px;
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (max-width: 768px) {
+    .thumbnail .caption {
+        margin-left: 0;
+        padding-left: 9px;
+    }
+}
 
 /* 小屏幕（平板，大于等于 768px） */
 
