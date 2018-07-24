@@ -103,6 +103,10 @@ AppAsset::register($this);
     </div>
 </div>
 
+<a class="back-to-top invalidate">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
+
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; PSYCH <?= date('Y') ?></p>
