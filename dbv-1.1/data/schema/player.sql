@@ -1,5 +1,6 @@
 CREATE TABLE `player` (
   `ID` int(11) NOT NULL,
+  `haoma` int(11) NOT NULL,
   `country` varchar(200) NOT NULL,
   `name` varchar(200) NOT NULL,
   `postion` varchar(200) NOT NULL,
@@ -9,6 +10,15 @@ CREATE TABLE `player` (
   `attended` int(11) NOT NULL,
   `totaltime` int(11) NOT NULL,
   `image` varchar(1000) NOT NULL,
-  PRIMARY KEY (`ID`,`country`),
-  KEY `country` (`country`)
+  `jinqiu` int(11) NOT NULL,
+  `zhugong` int(11) NOT NULL,
+  `shemen` int(11) NOT NULL,
+  `shezheng` int(11) NOT NULL,
+  `chuanqiu` int(11) NOT NULL,
+  `shiqiu` int(11) NOT NULL,
+  `pujiu` int(11) NOT NULL,
+  `hongpai` int(11) NOT NULL,
+  `huangpai` int(11) NOT NULL,
+  `click` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
