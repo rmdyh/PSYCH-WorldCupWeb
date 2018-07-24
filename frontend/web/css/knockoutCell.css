@@ -1,0 +1,156 @@
+.knockout-cell {
+    width: 13.48%;
+    height: 16.9%;
+    position: absolute;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.knockout-cell a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    color: #555;
+    position: relative;
+}
+
+.knockout-cell a:hover {
+    text-decoration: none;
+}
+
+.knockout-cell a .tx {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.knockout-cell a .tx-in {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.knockout-cell a .tx-in .teaminfo {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 7%;
+}
+
+.knockout-cell a .tx-in em {
+    font-weight: bold;
+}
+
+.knockout-cell a .tx-in .teaminfo p {
+    margin: 0;
+}
+
+.knockout-cell a .tx-floating {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: table;
+    vertical-align: middle;
+    padding-top: 10px;
+    transition: all 300ms ease;
+    border-radius: 3px;
+}
+
+.knockout-cell a:hover .tx-floating {
+    opacity: 1;
+}
+
+.cell-x-1{
+    left:2%;
+}
+.cell-x-2{
+    left: 16.6%
+}
+.cell-x-3{
+    left: 24.71%;
+    background-color: #bdfea3;
+}
+.cell-x-4{
+    left:40.33%;
+    width: 17.28%;
+    height: 21.67%;
+}
+.cell-x-4 a .tx-in .teaminfo p{
+    font-size: 120%;
+}
+.cell-x-5{
+    right: 26.66%;
+    background-color: #bdfea3;
+}
+.cell-x-6{
+    right: 18.07%;
+}
+.cell-x-7{
+    right: 3.42%;
+}
+.cell-y-1{
+    top: 4%;
+}
+.cell-y-2{
+    top: 14%;
+}
+.cell-y-3 {
+    top: 27%;
+}
+.cell-y-4 {
+    top: 38.37%;
+    background-color: #faf18a;
+}
+.cell-y-5 {
+    top: 39.76%;
+}
+.cell-y-6 {
+    top: 53.28%;
+}
+.cell-y-7 {
+    top: 65.21%;
+}
+.cell-y-8 {
+    top: 66.6%;
+}
+.cell-y-9 {
+    top: 78.33%;
+}
+
+.teamflag_s {
+    display: inline-block;
+    width: 26px;
+    height: 17px;
+    background-image: url("../static/teamflag_26x17.jpg");
+}
+
+.teamflag_7589_s {
+    background-position: 0 0;
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+
+@media (max-width: 992px) {
+    .knockout-cell {
+        font-size: 80%;
+    }
+    .knockout-cell a .tx-in .teaminfo {
+        margin: -1%;
+    }
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+
+@media (max-width: 1200px) {
+    .knockout-cell a .tx-in .teaminfo {
+        margin: 3%;
+        font-size: 90%;
+    }
+}

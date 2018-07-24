@@ -1,16 +1,37 @@
 <?php
 
 use frontend\components\NewsBarWidget;
-use frontend\components\TimeBarWidget;
+use frontend\components\CutBarWidget;
+use frontend\components\KnockoutCellWidget;
 
 /* @var $this yii\web\View */
 
 $this->title = 'PSYCH-WorldCup';
 ?>
-<div class="site-index">
-    
-    <?= TimeBarWidget::widget([
-        'date'=> date_create('2018-07-24')
+<div class="site-index">    
+    <?= CutBarWidget::widget([
+        'content' => '淘汰赛对阵'
+    ]) ?>
+    <div class="knockout-match">
+        <img class="bg" src="../web/static/against_bg.png"/>
+        <ul>
+            <?php
+                for($i=1;$i<=16;$i++)
+                    echo KnockoutCellWidget::widget([
+                        'id' => 1,
+                        'country_a' => "巴西",
+                        'country_b' => "巴东",
+                        'date' => date_create("2018-07-13"),
+                        'position' => $i,
+                        'score_a' => '1',
+                        'score_b' => '0',
+                        'url'=>"#",
+                    ])
+            ?>
+        </ul>
+    </div>
+    <?= CutBarWidget::widget([
+        'content' => '最 新 动 态'
     ]) ?>
     <?php echo NewsBarWidget::widget([
         'title' => '2018世界杯“战报”:亚马逊上哪些国家级明星球员的球衣最热销?',
@@ -25,9 +46,6 @@ $this->title = 'PSYCH-WorldCup';
         'title' => 'title',
         'imgUrl'=> '../web/static/news/20180723/cosmic.jpg',
         'brief'=>'a brief',
-    ]) ?>
-    <?= TimeBarWidget::widget([
-        'date'=> date_create('2018-06-24')
     ]) ?>
     <?php echo NewsBarWidget::widget([
         'title' => 'title',
