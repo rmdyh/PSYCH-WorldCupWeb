@@ -1,10 +1,28 @@
 <?php
 
+use frontend\components\NewsBarWidget;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'PSYCH-WorldCup';
 ?>
 <div class="site-index">
+
+    <?php echo NewsBarWidget::widget([
+        'title' => '2018世界杯“战报”:亚马逊上哪些国家级明星球员的球衣最热销?',
+        'imgUrl'=> '../web/static/news/20180723/cosmic.jpg',
+        'brief'=>'看看上述的图表就能感受到墨西哥球队的受欢迎程度,在整个世界杯赛季中,目前墨西哥国家队的球衣一直占据亚马逊美...',
+    ]) ?>
+    <?php echo NewsBarWidget::widget([
+        'title' => 'title',
+        'imgUrl'=> '../web/static/news/20180723/cosmic.jpg',
+        'brief'=>'a brief',
+    ]) ?>
+    <?php echo NewsBarWidget::widget([
+        'title' => 'title',
+        'imgUrl' => '../web/static/news/20180723/cosmic.jpg',
+        'brief' => 'a brief',
+    ]) ?>
+
 
     <div class="jumbotron">
         <h1>Congratulations!</h1>
@@ -50,4 +68,17 @@ $this->title = 'My Yii Application';
         </div>
 
     </div>
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
 </div>

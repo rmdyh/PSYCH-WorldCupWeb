@@ -1,0 +1,70 @@
+.head-band{
+    width: 100%;
+    padding: 160px 0 120px;
+    margin: 0;
+    background-image: url(../static/home_head_background.png)
+}
+
+.head-band h1{
+    text-align: center;
+    color: white;
+}
+
+.navbar_web{
+    background-color: #f3f3f3;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.navbar_web .navbar_content{
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.navbar_web .navbar_content li {
+    display: inline-block;
+    color: #555;
+}
+.navbar_web .navbar_content li.focusing a{
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.navbar_web .navbar_content li a {
+    color: inherit;
+    text-align: center;
+}
+
+.navbar_web .navbar_content li:nth-child(n+2)::before {
+    padding: 0 10px;
+    color: #ccc;
+    content: "|";
+}
+
+.thumbnail{
+    display: flex;
+}
+
+.thumbnail img{
+    flex: 1;
+}
+
+.thumbnail .caption{
+    flex: 2;
+    margin-left: 30px;
+    padding-bottom: 20px;
+}
+
+.thumbnail .caption h3{
+    margin: 10px 0 0;
+}
+.thumbnail .caption .caption-title{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.thumbnail .caption hr{
+    margin-top: 10px;
+}

@@ -60,6 +60,34 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+    <div class="head-band jumbotron">
+        <div class="container">
+            <h1>预留标题区域</h1>
+        </div>
+    </div>
+
+    <div class="navbar_web">
+        <div class="container">
+            <ul class="navbar_content">
+                <li class="focusing">
+                    <a href="./">主页</a>
+                </li>
+                <li>
+                    <a href="./">最新动态</a>
+                </li>
+                <li>
+                    <a href="./">赛程</a>
+                </li>
+                <li>
+                    <a href="./">球队一览</a>
+                </li>
+                <li>
+                    <a href="./">球员一览</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -71,7 +99,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; PSYCH <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
