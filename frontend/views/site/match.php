@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <th>
         </th>
     <tr> 
- <?php $match=Match::find()->where(["stage" => "小组赛A"])->all();
+ <?php 
 
     foreach($match as $mat): ?>
         
