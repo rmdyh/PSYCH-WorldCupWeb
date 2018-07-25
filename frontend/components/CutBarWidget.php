@@ -10,6 +10,8 @@ class CutBarWidget extends Widget
     public $options;
     public $content;
     public $font;
+    public $hrCss;
+    public $divCss;
 
     public function init()
     {
@@ -26,11 +28,13 @@ class CutBarWidget extends Widget
     {
         $options=$this->options;
         $font=$this->font;
+        $hrCss=$this->hrCss;
+
         if(empty($options['class'])){
             Html::addCssClass($options, 'cut-bar');
         }
         echo Html::beginTag('div',$options);
-        echo Html::Tag('hr');
+        echo Html::Tag('hr','',['style'=>$hrCss]);
         echo html::Tag('span',$this->content,['style'=>$font]);
         echo Html::endTag('div');
     }

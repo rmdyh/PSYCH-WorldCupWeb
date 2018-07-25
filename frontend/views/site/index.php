@@ -11,7 +11,8 @@ $this->title = 'PSYCH-WorldCup';
 <div class="site-index">    
     <?= CutBarWidget::widget([
         'content' => '淘汰赛对阵',
-        'font' => "font-size: 140%; color: #555;margin-top: -3px;"
+        'font' => "font-size: 140%; color: #555;margin-top: -3px;",
+        'divCss' => "padding:40px 0;",
     ]) ?>
     <div class="knockout-match">
         <img class="bg" src="../web/static/against_bg.png"/>
