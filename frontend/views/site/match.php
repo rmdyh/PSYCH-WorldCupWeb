@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 
-$this->title = '赛程一览';
+$this->title = '小组赛';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-match">
@@ -20,10 +20,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <!-- <code><?= __FILE__ ?></code> -->
 </div>
 
-<div class="site-info">
+<?php
+ $navUrls=[
+     ['label'=>'小组赛','url'=>'./?r=site%2Fmatch'],
+     ['label'=>'淘汰赛','url'=>'./?r=site%2Fmatch_'],
+ ];
+ $nowUrl=Yii::$app->request->url;
+  for ($i=0;$i<count($navUrls);$i++) {
+    $navTag=$navUrls[$i]['label'];
+    $navUrl=$navUrls[$i]['url'];
+    $options=['class'=>null];
+       if(strpos($nowUrl,substr($navUrl,1,strlen($navUrl)-1))!==FALSE){
+           Html::addCssClass($options, 'focusing');
+           }
+        echo Html::beginTag('li',$options);
+        echo Html::tag('a',$navTag,['href'=>$navUrl]);
+        echo Html::endTag('li');
+     }
+?>
+
+<!-- <div class="site-info">
+
 <button type="button" class="btn btn-link">小组赛赛程安排</button>
+
 <button type="button" class="btn btn-link">淘汰赛赛程安排</button>
-</div>
+</div> -->
 
  <!-- <table class="tdlink" cellspacing="0" cellpadding="10" width="950" heigth="350" bgcolor="#ffffff" border="1">
     <tr>

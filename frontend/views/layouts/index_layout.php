@@ -75,7 +75,7 @@ AppAsset::register($this);
                         ['label'=>'战绩战报','url'=>'./?r=site%2Fnews'],
                         ['label'=>'赛程','url'=>'./?r=site%2Fmatch'],
                         ['label'=>'球队一览','url'=>'./?r=site%2Fteams'],
-                        ['label'=>'球员一览','url'=>'./#'],
+                        ['label'=>'球员一览','url'=>'./?r=site%2Fplayers'],
                     ];
                     $nowUrl=Yii::$app->request->url;
                     for ($i=0;$i<count($navUrls);$i++) {

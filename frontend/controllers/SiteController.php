@@ -226,4 +226,12 @@ class SiteController extends Controller
     {
         return $this->render('teams');
     }
+    public function actionMatch_()
+    {
+        return $this->render('match_');
+    }
+     public function actionPlayers()
+    {
+        return $this->render('players');
+    }
 }
