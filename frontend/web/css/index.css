@@ -43,28 +43,44 @@
     content: "|";
 }
 
-.thumbnail{
-    display: flex;
-}
-
 .thumbnail img{
-    flex: 1;
+    padding: 0;
 }
 
 .thumbnail .caption{
-    flex: 2;
-    margin-left: 30px;
-    padding-bottom: 20px;
+    overflow: hidden;
 }
 
 .thumbnail .caption h3{
     margin: 10px 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .thumbnail .caption .caption-title{
-    text-overflow:ellipsis;
     white-space: nowrap;
-    overflow: hidden;
 }
 .thumbnail .caption hr{
     margin-top: 10px;
+}
+
+.clear{
+    clear: both;
+}
+
+
+/* 小屏幕（平板，大于等于 768px） */
+
+@media (min-width: 768px) {
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+
+@media (min-width: 992px) {
+
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+
+@media (min-width: 1200px) {
+
 }
