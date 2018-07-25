@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 
-$this->title = '赛程一览';
+$this->title = '小组赛';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-match">
@@ -20,10 +20,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <!-- <code><?= __FILE__ ?></code> -->
 </div>
 
-<div class="site-info">
+<?php
+ $navUrls=[
+     ['label'=>'小组赛','url'=>'./?r=site%2Fmatch'],
+     ['label'=>'淘汰赛','url'=>'./?r=site%2Fmatch_'],
+ ];
+ $nowUrl=Yii::$app->request->url;
+  for ($i=0;$i<count($navUrls);$i++) {
+    $navTag=$navUrls[$i]['label'];
+    $navUrl=$navUrls[$i]['url'];
+    $options=['class'=>null];
+       if(strpos($nowUrl,substr($navUrl,1,strlen($navUrl)-1))!==FALSE){
+           Html::addCssClass($options, 'focusing');
+           }
+        echo Html::beginTag('li',$options);
+        echo Html::tag('a',$navTag,['href'=>$navUrl]);
+        echo Html::endTag('li');
+     }
+?>
+
+<!-- <div class="site-info">
+
 <button type="button" class="btn btn-link">小组赛赛程安排</button>
+
 <button type="button" class="btn btn-link">淘汰赛赛程安排</button>
-</div>
+</div> -->
 
  <!-- <table class="tdlink" cellspacing="0" cellpadding="10" width="950" heigth="350" bgcolor="#ffffff" border="1">
     <tr>
@@ -38,9 +59,374 @@ $this->params['breadcrumbs'][] = $this->title;
     	<td>详情</td>
     <tr>
  </table> -->
+ A组
+ <table class="table table-border">
+    <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php 
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
 
 
-   
+   B组
+ <table class="table table-border">
+   <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛B"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+
+ C组
+ <table class="table table-border">
+   <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛C"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+
+ D组
+ <table class="table table-border">
+   <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛D"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+
+ E组
+ <table class="table table-border">
+    <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛E"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+
+ F组
+ <table class="table table-border">
+  <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛F"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+
+ G组
+ <table class="table table-border">
+   <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛G"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+
+ H组
+ <table class="table table-border">
+    <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php $match=Match::find()->where(["stage" => "小组赛H"])->all();
+
+    foreach($match as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         ——
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
 
 
 

@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Match;
 
 /**
  * Site controller
@@ -214,7 +215,10 @@ class SiteController extends Controller
     }
      public function actionMatch()
     {
-        return $this->render('match');
+        $match=Match::find()->where(["stage" => "小组赛A"])->all();
+        return $this->render('match',[
+            'match'=>$match
+        ]);
     }
 
     public function actionNews()
@@ -225,5 +229,13 @@ class SiteController extends Controller
     public function actionTeams()
     {
         return $this->render('teams');
+    }
+    public function actionMatch_()
+    {
+        return $this->render('match_');
+    }
+     public function actionPlayers()
+    {
+        return $this->render('players');
     }
 }
