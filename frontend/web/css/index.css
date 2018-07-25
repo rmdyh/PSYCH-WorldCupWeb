@@ -43,18 +43,36 @@
     content: "|";
 }
 
+.thumbnail{
+    height: 189.6px;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+.thumbnail:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px;
+    border-color: #fff;
+}
+
 .thumbnail img{
     padding: 0;
+    height: 180px;
+    position: absolute;
+    vertical-align:top;
+    width: 320px;
 }
 
 .thumbnail .caption{
     overflow: hidden;
+    margin-left: 320px;
+    height: 100%;
+    padding-left: 3%;
 }
 
 .thumbnail .caption h3{
-    margin: 10px 0 0;
+    margin: 3px 0 0;
     text-overflow: ellipsis;
     overflow: hidden;
+    pointer-events: none;
 }
 .thumbnail .caption .caption-title{
     white-space: nowrap;
@@ -62,9 +80,107 @@
 .thumbnail .caption hr{
     margin-top: 10px;
 }
+.text-overflow::after{
+    content: '...';
+}
+.text-overflow p {
+    margin: 0 0 10px;
+    max-height: 5.6em;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    pointer-events: none;
+}
 
-.clear{
-    clear: both;
+.cut-bar{
+    position: relative;
+    padding: 10px 0;
+}
+.cut-bar hr{
+    width: 80%;
+}
+.cut-bar span{
+    color: #555;
+    position: absolute;
+    top: 20px;
+    background-color: #fff;
+    padding: 0 10px;
+    right: 50%;
+    margin-right: -75px;
+    pointer-events: none;
+    width: 150px;
+    text-align: center;
+}
+
+.link-big{
+    font-size: 120%;
+    padding:20px 0;
+    cursor: pointer;
+}
+.link-big a,.link-big a:hover,.link-big a:focus{
+    text-decoration: none;
+}
+.text-right{
+    text-align: right;
+}
+
+.footer{
+    margin-top: 40px;
+}
+
+.wrap > .container{
+    padding-top: 40px;
+}
+
+.back-to-top{
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    padding: 7px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 160%;
+    margin-right: 5px;
+    transition: all 300ms ease;
+    opacity: 1;
+    cursor: pointer;
+}
+.back-to-top:hover{
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+}
+.invalidate {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.knockout-match{
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+.knockout-match img.bg{
+    width: 100%;
+    height: auto;
+    zoom: 0;
+}
+.knockout-match ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (max-width: 768px) {
+    .thumbnail .caption {
+        margin-left: 0;
+        padding-left: 9px;
+    }
 }
 
 

@@ -69,21 +69,27 @@ AppAsset::register($this);
     <div class="navbar_web">
         <div class="container">
             <ul class="navbar_content">
-                <li class="focusing">
-                    <a href="./">主页</a>
-                </li>
-                <li>
-                    <a href="./">最新动态</a>
-                </li>
-                <li>
-                    <a href="./index.php?r=site%2Fmatch">赛程</a>
-                </li>
-                <li>
-                    <a href="./">球队一览</a>
-                </li>
-                <li>
-                    <a href="./">球员一览</a>
-                </li>
+                <?php
+                    $navUrls=[
+                        ['label'=>'主页','url'=>'./?r=site%2Findex'],
+                        ['label'=>'战绩战报','url'=>'./#'],
+                        ['label'=>'赛程','url'=>'./?r=site%2Fschedule'],
+                        ['label'=>'球队一览','url'=>'./#'],
+                        ['label'=>'球员一览','url'=>'./#'],
+                    ];
+                    $nowUrl=Yii::$app->request->url;
+                    for ($i=0;$i<count($navUrls);$i++) {
+                        $navTag=$navUrls[$i]['label'];
+                        $navUrl=$navUrls[$i]['url'];
+                        $options=['class'=>null];
+                        if(strpos($nowUrl,substr($navUrl,1,strlen($navUrl)-1))!==FALSE){
+                            Html::addCssClass($options, 'focusing');
+                        }
+                        echo Html::beginTag('li',$options);
+                        echo Html::tag('a',$navTag,['href'=>$navUrl]);
+                        echo Html::endTag('li');
+                    }
+                ?>
             </ul>
         </div>
     </div>
@@ -96,6 +102,10 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
+
+<a class="back-to-top invalidate">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
 
 <footer class="footer">
     <div class="container">
