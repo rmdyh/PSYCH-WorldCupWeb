@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Match;
+use frontend\models\Player;
 
 /**
  * Site controller
@@ -215,9 +216,17 @@ class SiteController extends Controller
     }
      public function actionMatch()
     {
-        $match=Match::find()->where(["stage" => "小组赛A"])->all();
+        $match;
+        $match['A组']=Match::find()->where(["stage" => "小组赛A"])->orderBy('time1','time2','time3')->all();
+        $match['B组']=Match::find()->where(["stage" => "小组赛B"])->orderBy('time1','time2','time3')->all();
+        $match['C组']=Match::find()->where(["stage" => "小组赛C"])->orderBy('time1','time2','time3')->all();
+        $match['D组']=Match::find()->where(["stage" => "小组赛D"])->orderBy('time1','time2','time3')->all();
+        $match['E组']=Match::find()->where(["stage" => "小组赛E"])->orderBy('time1','time2','time3')->all();
+        $match['F组']=Match::find()->where(["stage" => "小组赛F"])->orderBy('time1','time2','time3')->all();
+        $match['G组']=Match::find()->where(["stage" => "小组赛G"])->orderBy('time1','time2','time3')->all();
+        $match['H组']=Match::find()->where(["stage" => "小组赛H"])->orderBy('time1','time2','time3')->all();
         return $this->render('match',[
-            'match'=>$match
+            'matchs'=>$match,
         ]);
     }
 
@@ -232,10 +241,57 @@ class SiteController extends Controller
     }
     public function actionMatch_()
     {
-        return $this->render('match_');
+        $match_;
+        $match_['1/8决赛']=Match::find()->where(["stage" => "1/8决赛"])->orderBy('time1','time2','time3')->all();
+        $match_['1/4决赛']=Match::find()->where(["stage" => "1/4决赛"])->orderBy('time1','time2','time3')->all();
+        $match_['半决赛']=Match::find()->where(["stage" => "半决赛"])->orderBy('time1','time2','time3')->all();
+        $match_['3、4名决赛']=Match::find()->where(["stage" => "3、4名决赛"])->orderBy('time1','time2','time3')->all();
+        $match_['1、2名决赛']=Match::find()->where(["stage" => "1、2名决赛"])->orderBy('time1','time2','time3')->all();
+        
+        return $this->render('match_',[
+            'match_'=>$match_,
+
+        ]);
     }
      public function actionPlayers()
     {
-        return $this->render('players');
+        $player;
+       $player['俄罗斯']=Player::find()->where(["country" => "俄罗斯"])->all();
+       $player['埃及']=Player::find()->where(["country" => "埃及"])->all();
+       $player['乌拉圭']=Player::find()->where(["country" => "乌拉圭"])->all();
+       $player['沙特阿拉伯']=Player::find()->where(["country" => "沙特阿拉伯"])->all();
+       $player['伊朗']=Player::find()->where(["country" => "伊朗"])->all();
+       $player['摩洛哥']=Player::find()->where(["country" => "摩洛哥"])->all();
+       $player['葡萄牙']=Player::find()->where(["country" => "葡萄牙"])->all();
+       $player['西班牙']=Player::find()->where(["country" => "西班牙"])->all();
+       $player['丹麦']=Player::find()->where(["country" => "丹麦"])->all();
+       $player['法国']=Player::find()->where(["country" => "法国"])->all();
+       $player['澳大利亚']=Player::find()->where(["country" => "澳大利亚"])->all();
+       $player['秘鲁']=Player::find()->where(["country" => "秘鲁"])->all();
+       $player['克罗地亚']=Player::find()->where(["country" => "克罗地亚"])->all();
+       $player['冰岛']=Player::find()->where(["country" => "冰岛"])->all();
+       $player['尼日利亚']=Player::find()->where(["country" => "尼日利亚"])->all();
+       $player['阿根廷']=Player::find()->where(["country" => "阿根廷"])->all();
+       $player['哥斯达黎加']=Player::find()->where(["country" => "哥斯达黎加"])->all();
+       $player['塞尔维亚']=Player::find()->where(["country" => "塞尔维亚"])->all();
+       $player['巴西']=Player::find()->where(["country" => "巴西"])->all();
+       $player['瑞士']=Player::find()->where(["country" => "瑞士"])->all();
+       $player['墨西哥']=Player::find()->where(["country" => "墨西哥"])->all();
+       $player['德国']=Player::find()->where(["country" => "德国"])->all();
+       $player['瑞典']=Player::find()->where(["country" => "瑞典"])->all();
+       $player['韩国']=Player::find()->where(["country" => "韩国"])->all();
+       $player['巴拿马']=Player::find()->where(["country" => "巴拿马"])->all();
+       $player['比利时']=Player::find()->where(["country" => "比利时"])->all();
+       $player['突尼斯']=Player::find()->where(["country" => "突尼斯"])->all();
+       $player['英格兰']=Player::find()->where(["country" => "英格兰"])->all();
+       $player['德国']=Player::find()->where(["country" => "德国"])->all();
+       $player['哥伦比亚']=Player::find()->where(["country" => "哥伦比亚"])->all();
+      $player['塞内加尔']=Player::find()->where(["country" => "塞内加尔"])->all();
+       $player['日本']=Player::find()->where(["country" => "日本"])->all();
+       $player['波兰']=Player::find()->where(["country" => "波兰"])->all();
+      
+        return $this->render('players',[
+            'players'=>$player,
+        ]);
     }
 }

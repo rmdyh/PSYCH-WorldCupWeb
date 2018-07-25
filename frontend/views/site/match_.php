@@ -4,6 +4,7 @@ use frontend\components\NewsBarWidget;
 use frontend\components\CutBarWidget;
 use frontend\components\KnockoutCellWidget;
 use yii\helpers\Html;
+use frontend\models\Match;
 /* @var $this yii\web\View */
 $this->title = '淘汰赛';
 $this->params['breadcrumbs'][] = $this->title;
@@ -39,21 +40,52 @@ $this->params['breadcrumbs'][] = $this->title;
         'content' => '淘汰赛对阵',
         'font' => "font-size: 140%; color: #555;margin-top: -3px;"
     ]) ?>
-    <div class="knockout-match">
-        <img class="bg" src="../web/static/against_bg.png"/>
-        <ul>
-            <?php
-                for($i=1;$i<=16;$i++)
-                    echo KnockoutCellWidget::widget([
-                        'id' => 1,
-                        'country_a' => "巴西",
-                        'country_b' => "巴东",
-                        'date' => date_create("2018-07-13"),
-                        'position' => $i,
-                        'score_a' => '1',
-                        'score_b' => '0',
-                        'url'=>"#",
-                    ])
-            ?>
-        </ul>
-    </div>
+ 
+
+ <?php foreach ($match_ as $label => $match_): ?> 
+    <?= $label?>
+ <table class="table table-striped table-hover">
+    <tr>
+       <th>
+            比赛时间
+        </th>
+         <th>
+            比赛地点
+        </th>
+         <th>
+        </th>
+        <th>
+            对阵情况
+        </th>
+        <th>
+        </th>
+    <tr> 
+ <?php 
+
+    foreach($match_ as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->time1") ?> 
+          <?= Html::encode("$mat->time2") ?> 
+          <?= Html::encode("$mat->time3") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->place") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->country") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->score") ?>
+         :
+        <?= Html::encode("$mat->sec_score") ?>    
+        </td>
+        <td>
+         <?= Html::encode("$mat->sec_country") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+  </table>
+<?php endforeach;?>
