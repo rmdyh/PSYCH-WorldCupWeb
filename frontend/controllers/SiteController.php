@@ -217,4 +217,14 @@ class SiteController extends Controller
     {
         return $this->render('schedule');
     }
+
+    public function actionNews()
+    {
+        return $this->render('news');
+    }
+
+    public function actionTeams()
+    {
+        return $this->render('teams');
+    }
 }

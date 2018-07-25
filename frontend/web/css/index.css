@@ -43,17 +43,17 @@
     content: "|";
 }
 
-.thumbnail{
+.thumbnail-news{
     height: 189.6px;
     cursor: pointer;
     transition: all 400ms ease;
 }
-.thumbnail:hover {
+.thumbnail-news:hover {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 10px;
     border-color: #fff;
 }
 
-.thumbnail img{
+.thumbnail-news img{
     padding: 0;
     height: 180px;
     position: absolute;
@@ -61,23 +61,23 @@
     width: 320px;
 }
 
-.thumbnail .caption{
+.thumbnail-news .caption{
     overflow: hidden;
     margin-left: 320px;
     height: 100%;
     padding-left: 3%;
 }
 
-.thumbnail .caption h3{
+.thumbnail-news .caption h3{
     margin: 3px 0 0;
     text-overflow: ellipsis;
     overflow: hidden;
     pointer-events: none;
 }
-.thumbnail .caption .caption-title{
+.thumbnail-news .caption .caption-title{
     white-space: nowrap;
 }
-.thumbnail .caption hr{
+.thumbnail-news .caption hr{
     margin-top: 10px;
 }
 .text-overflow::after{
@@ -100,7 +100,7 @@
     width: 80%;
 }
 .cut-bar span{
-    color: #555;
+    color: #888;
     position: absolute;
     top: 20px;
     background-color: #fff;
@@ -175,9 +175,47 @@
     list-style: none;
 }
 
+.wc-hd{
+    position: relative;
+    padding-top: 20px;
+}
+.wc-hd span{
+    position: absolute;
+    bottom: -2px;
+    font-size: 150%;
+    display: inline-block;
+}
+.wc-hd span::before{
+    content: ' ';
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    background-color: #eaaf11;
+    margin-right: 5px;
+    margin-bottom: -2px;
+}
+.wrap-team-icon{
+    text-align: center;
+}
+.wc-team-icon:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.wc-team-icon{
+    padding: 10px 25px 5px;
+    display: inline-block;
+    border-radius: 3px;
+}
+.wc-team-icon .caption p{
+    margin: 0;
+    color: #337ab7;
+}
+.wc-team-icon:hover .caption p{
+    text-decoration: underline;
+}
+
 /* 小屏幕（平板，大于等于 768px） */
 @media (max-width: 768px) {
-    .thumbnail .caption {
+    .thumbnail-news .caption {
         margin-left: 0;
         padding-left: 9px;
     }
