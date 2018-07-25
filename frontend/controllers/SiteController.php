@@ -212,10 +212,9 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
-    public function actionSchedule()
+     public function actionMatch()
     {
-        return $this->render('schedule');
+        return $this->render('match');
     }
 
     public function actionNews()
