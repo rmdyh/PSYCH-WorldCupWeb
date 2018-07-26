@@ -14,7 +14,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Match;
 use frontend\models\Player;
-
+use frontend\models\Team;
 /**
  * Site controller
  */
@@ -217,6 +217,8 @@ class SiteController extends Controller
      public function actionMatch()
     {
         $match;
+ 
+      //  $match['A组']=Match::find()->where(['or',['country'=>'俄罗斯'],['sec_country'=>'俄罗斯']])->all();
         $match['A组']=Match::find()->where(["stage" => "小组赛A"])->orderBy('time1','time2','time3')->all();
         $match['B组']=Match::find()->where(["stage" => "小组赛B"])->orderBy('time1','time2','time3')->all();
         $match['C组']=Match::find()->where(["stage" => "小组赛C"])->orderBy('time1','time2','time3')->all();
@@ -237,8 +239,20 @@ class SiteController extends Controller
 
     public function actionTeams()
     {
+       
         return $this->render('teams');
+
+       
     }
+     public function actionTeaminfo()
+    {
+         $teaminfo= Team::find()->where(["country" => "俄罗斯"])->all();
+          return $this->render('teaminfo',[
+            'teaminfo'=>$teaminfo,
+
+        ]);
+      }
+
     public function actionMatch_()
     {
         $match_;
@@ -255,7 +269,13 @@ class SiteController extends Controller
     }
      public function actionPlayers()
     {
-        $player;
+
+        $model = new Player();
+        $data = Player::find()->all();
+
+
+
+       $player;
        $player['俄罗斯']=Player::find()->where(["country" => "俄罗斯"])->all();
        $player['埃及']=Player::find()->where(["country" => "埃及"])->all();
        $player['乌拉圭']=Player::find()->where(["country" => "乌拉圭"])->all();
@@ -292,6 +312,9 @@ class SiteController extends Controller
       
         return $this->render('players',[
             'players'=>$player,
+            'model' => $model,
+            'data' => $data,
         ]);
+
     }
 }

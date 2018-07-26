@@ -4,11 +4,24 @@
 
 use yii\helpers\Html;
 use frontend\models\Player;
+use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 $this->title = '球员一览';
 $this->params['breadcrumbs'][] = $this->title;
+                            
 ?>
+<?php
+   echo "球队检索             "; 
+ echo Html::activeDropDownList($model, 'country', ArrayHelper::map($data,'country', 'country')); 
+ ?>
+<button class="btn btn-default" type="submit">确定</button>
+<input type="text" class="form-control" placeholder="Text input">
+<button class="btn btn-default" type="submit">确定</button>
 
+<br>
+<br>
+<br>
 <?php foreach ($players as $label => $player): ?> 
  <?= $label?> 
 
