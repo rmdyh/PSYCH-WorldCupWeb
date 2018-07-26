@@ -6,13 +6,14 @@ use yii\helpers\Html;
 use frontend\models\Player;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use yii\grid\GridView;
 
 $this->title = '球员一览';
 $this->params['breadcrumbs'][] = $this->title;
                             
 ?>
 <?php
-   echo "球队检索             "; 
+   echo "球队检索"; 
  echo Html::activeDropDownList($model, 'country', ArrayHelper::map($data,'country', 'country')); 
  ?>
 <button class="btn btn-default" type="submit">确定</button>
@@ -49,7 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endforeach;?>
     </div>
     <?php endforeach;?>
-
 
 
 

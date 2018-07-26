@@ -40,6 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'stage',
             'url:url',
         ],
+        'title' => '俄罗斯',
+        'imgUrl'=> '../web/static/country/俄罗斯.png',
     ]) ?>
 
 </div>
