@@ -318,3 +318,9 @@ class SiteController extends Controller
 
     }
 }
+
+/*
+队名、主教练、成立时间、加入世界足联事件、参加次数、冠军次数、世界排名、组别
+本届世界杯的比赛信息 match
+球员信息 player
+*/

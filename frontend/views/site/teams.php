@@ -20,14 +20,14 @@ $this->title = '球队一览-PSYCH-WorldCup';
         <?php $match=Team::find()->where(["f_group" => "A"])->all();
          foreach($match as $mat): ?>
         <div class="col-xs-6 col-md-3">
-            <div class="wrap-team-icon">
+            <?= Html::beginTag('a',['class'=> "wrap-team-icon" ,'href'=> "./?r=team%2Fview&id=".$mat->country])?>
             <div class="wc-team-icon">
                 <span class="teamflag_m teamflag_7589_m"></span>
                 <div class="caption">
                     <p> <?= Html::encode("$mat->country") ?></p>
                 </div>
             </div>
-            </div>
+            </a>
         </div>
         <?php endforeach;?>
     </div>
