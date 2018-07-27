@@ -15,6 +15,7 @@ use frontend\models\ContactForm;
 use frontend\models\Match;
 use frontend\models\Player;
 use frontend\models\Team;
+use frontend\models\Passage;
 /**
  * Site controller
  */
@@ -76,7 +77,25 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        // $model;
+        // $model[1]=Match::find()->where(["stage" => "1/8决赛"])->all();
+        // $model[2]=Match::find()->where(["stage" => "1/4决赛"])->all();
+        // $model[3]=Match::find()->where(["stage" => "半决赛"])->all();
+        // $model[4]=Match::find()->where(["stage" => "3、4名决赛"])->all();
+        // $model[5]=Match::find()->where(["stage" => "1、2名决赛"])->all();
+        $model1=Match::find()->where(["stage" => "1/8决赛"])->orderBy('ID')->all();
+        $model2=Match::find()->where(["stage" => "1/4决赛"])->all();
+        $model3=Match::find()->where(["stage" => "半决赛"])->all();
+        $model4=Match::find()->where(["stage" => "3、4名决赛"])->all();
+        $model5=Match::find()->where(["stage" => "1、2名决赛"])->all();
+        return $this->render('index',[
+            "model1"=>$model1,
+            "model2"=>$model2,
+            "model3"=>$model3,
+            "model4"=>$model4,
+            "model5"=>$model5,
+
+        ]);
     }
 
     /**
@@ -316,9 +335,17 @@ class SiteController extends Controller
             'data' => $data,
         ]);
 
+    } 
+    public function actionPassage()
+    {
+        $passage=Passage::find()->all();
+        return $this->render('passage',[
+            'passage'=>$passage,
+        ]);
     }
-}
 
+}
+  
 /*
 队名、主教练、成立时间、加入世界足联事件、参加次数、冠军次数、世界排名、组别
 本届世界杯的比赛信息 match
