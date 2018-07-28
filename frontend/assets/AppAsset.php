@@ -14,8 +14,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/index.css',
-        'css/knockoutCell.css',
-        'css_new/xxx.css'
+        'css/knockoutCell.css'
     ];
     public $js = [
         'js/velocity.min.js',

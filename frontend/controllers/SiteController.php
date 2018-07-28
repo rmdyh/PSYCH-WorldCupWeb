@@ -246,8 +246,21 @@ class SiteController extends Controller
         $match['F组']=Match::find()->where(["stage" => "小组赛F"])->orderBy('time1','time2','time3')->all();
         $match['G组']=Match::find()->where(["stage" => "小组赛G"])->orderBy('time1','time2','time3')->all();
         $match['H组']=Match::find()->where(["stage" => "小组赛H"])->orderBy('time1','time2','time3')->all();
+
+        $group;
+        $group['A组']=Team::find()->where(["f_group" => "A"])->orderBy('jifen DESC')->all();
+        $group['B组']=Team::find()->where(["f_group" => "B"])->orderBy('jifen DESC')->all();
+        $group['C组']=Team::find()->where(["f_group" => "C"])->orderBy('jifen DESC')->all();
+        $group['D组']=Team::find()->where(["f_group" => "D"])->orderBy('jifen DESC')->all();
+        $group['E组']=Team::find()->where(["f_group" => "E"])->orderBy('jifen DESC')->all();
+        $group['F组']=Team::find()->where(["f_group" => "F"])->orderBy('jifen DESC')->all();
+        $group['G组']=Team::find()->where(["f_group" => "G"])->orderBy('jifen DESC')->all();
+        $group['H组']=Team::find()->where(["f_group" => "H"])->orderBy('jifen DESC')->all();
+
+
         return $this->render('match',[
             'matchs'=>$match,
+            'group'=>$group,
         ]);
     }
 
