@@ -8,7 +8,8 @@ use frontend\models\TeamSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use frontend\models\Match;
+use frontend\models\Player;
 /**
  * TeamController implements the CRUD actions for Team model.
  */
@@ -52,8 +53,14 @@ class TeamController extends Controller
      */
     public function actionView($id)
     {
+        // $player=Player::find()->where(["country" => $id])->all();
+        // $match=Match::find()->where(['or',['country'=>'$id'],['sec_country'=>'$id']])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+          // "match"=>$match,
+          'id'=>$id,
+           // 'player'=>$player,
+
         ]);
     }
 

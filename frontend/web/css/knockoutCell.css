@@ -128,18 +128,15 @@
     display: inline-block;
     width: 26px;
     height: 17px;
-    background-image: url("../static/teamflag_26x17.jpg");
+    background-size: 100% 100%
+   /* background-image: url("../static/teamflag_26x17.jpg");*/
 }
 
 .teamflag_m {
     display: inline-block;
-    width: 114px;
+    width: 64px;
     height: 64px;
-    background-image: url("../static/teamflag_114x64.jpg");
-}
-
-.teamflag_7589_s {
-    background-position: 0 0;
+    background-size: 100% 100%;
 }
 
 .teamflag_7589_m {

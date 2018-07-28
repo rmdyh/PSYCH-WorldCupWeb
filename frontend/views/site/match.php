@@ -11,6 +11,7 @@ use yii\data\ActiveDataProvider;
 use frontend\components\NewsBarWidget;
 use frontend\components\CutBarWidget;
 use frontend\components\KnockoutCellWidget;
+use frontend\models\Team;
 
 $this->title = '小组赛';
 $this->params['breadcrumbs'][] = $this->title;
@@ -67,8 +68,10 @@ $this->params['breadcrumbs'][] = $this->title;
     	<td>详情</td>
     <tr>
  </table> -->
+     <div class="col-md-8">
  <?php foreach ($matchs as $label => $match): ?> 
     <?= $label?>
+
  <table class="table table-striped table-hover">
     <tr>
        <th>
@@ -113,7 +116,84 @@ $this->params['breadcrumbs'][] = $this->title;
   
    <?php endforeach;?>
   </table>
+
 <?php endforeach;?>
+  </div>
 
 
+     <div class="col-md-4">
+ <?php foreach ($group as $label => $group): ?> 
+   <?= $label?>
+ <table class="table table-striped table-hover">
+    <tr>
+       <!--  <th>
+           排名
+        </th> -->
+       <th>
+            国家
+        </th>
+         <th>
+            赢
+        </th>
+         <th>
+            输
+        </th>
+        <th>
+            平
+        </th>
+        <th>
+            得
+        </th>
+        <th>
+            失
+        </th>
+        <th>
+            净
+        </th>
+        <th>
+            积分
+        </th>
 
+    <tr> 
+ 
+<?php 
+
+    foreach($group as $mat): ?>
+        
+        <td>
+         <?= Html::encode("$mat->country") ?> 
+        </td>
+        <td>
+         <?= Html::encode("$mat->win") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->lose") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->equal") ?>
+        </td>
+        <td>
+         <?= Html::encode("$mat->get_score") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->lose_score") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->jing_score") ?>  
+        </td>
+        <td>
+         <?= Html::encode("$mat->jifen") ?>  
+        </td>
+       
+    </tr>
+  
+   <?php endforeach;?>
+     </table>
+     <br>
+     <br>
+     <br>
+     <br>
+  <?php endforeach;?>
+
+  
+  </div>

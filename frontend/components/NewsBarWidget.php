@@ -8,6 +8,11 @@ class NewsBarWidget extends Widget
     public $title;
     public $imgUrl;
     public $brief;
+    public $author;
+    public $seen;
+    public $like;
+    public $comment;
+    public $model;
 
     public function init()
     {
@@ -20,6 +25,10 @@ class NewsBarWidget extends Widget
             'title' => $this->title,
             'imgUrl' => $this->imgUrl,
             'brief' => $this->brief,
+            "author"=>$this->author,
+            "seen"=>$this->seen,
+             "like"=>$this->like,
+             "comment"=>$this->comment,
         ]);
     }
 }
