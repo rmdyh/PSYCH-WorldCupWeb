@@ -3,9 +3,18 @@ CREATE TABLE `favorite` (
   `passage_ID` int(11) NOT NULL COMMENT '文章ID',
   `user_ID` int(11) NOT NULL COMMENT '收藏者ID',
   `username` varchar(255) NOT NULL COMMENT '收藏者姓名',
+<<<<<<< HEAD
+  PRIMARY KEY (`ID`) USING BTREE,
+  KEY `passage_ID` (`passage_ID`) USING BTREE,
+  KEY `user_ID` (`user_ID`) USING BTREE,
+  CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`passage_ID`) REFERENCES `passage` (`ID`),
+  CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`user_ID`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT
+=======
   PRIMARY KEY (`ID`),
   KEY `passage_ID` (`passage_ID`),
   KEY `user_ID` (`user_ID`),
   CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`passage_ID`) REFERENCES `passage` (`ID`),
   CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`user_ID`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+>>>>>>> 41107600481d359f1a60421593cffc4e26d01ffb

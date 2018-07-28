@@ -1,19 +1,35 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: WZZ
- * Date: 2018/7/28
- * Time: 21:02
- */
+
+use frontend\components\NewsBarWidget;
+use frontend\components\CutBarWidget;
 use yii\helpers\Html;
-use yii\grid\GridView;
+/* @var $this yii\web\View */
 
-$this->title = $model['title'];
+$this->title = '热门文章';
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
-<script>
+<div class="site-index">    
+    <?= CutBarWidget::widget([
+        'date' => date_create("2018-07-25"),
+    ]) ?>
 
-</script>
 
-<div class ></div>
+   <?php foreach ($passage as $mat) : ?>
+    <?php echo NewsBarWidget::widget([
+        'title' => Html::encode("$mat->title"),
+        'imgUrl' => '../web/static/news/20180723/cosmic.jpg',
+        'brief' => Html::encode("$mat->content"),
+        'author' => Html::encode("$mat->author"),
+        'seen' => Html::encode("$mat->seen"),
+
+    ]) ?> 
+
+
+    <?php endforeach; ?>
+
+   
+    <!--下面需要一个分页
+    https://www.yiichina.com/tutorial/93?sort=desc
+    -->
+
+</div>

@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Source+Sans+Pro:300,400,600);
+
+body{
+    font-family: 'Source Sans Pro',sans-serif;
+}
+
 .head-band{
     width: 100%;
     padding: 160px 0 120px;
@@ -212,9 +218,48 @@
 .wc-team-icon .caption p{
     margin: 0;
     color: #337ab7;
+    white-space: nowrap;
 }
 .wc-team-icon:hover .caption p{
     text-decoration: underline;
+}
+
+.page-head-div {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background: #e7eaf0;
+    margin-bottom: 30px;
+}
+
+.page-head-wrap::before {
+    top: 0;
+    right: 0;
+    z-index: -1;
+    content: "";
+    bottom: auto;
+    height: 100%;
+    width: 2000%;
+    position: absolute;
+    -webkit-transform: skew(-30deg);
+    -moz-transform: skew(-30deg);
+    -ms-transform: skew(-30deg);
+    -o-transform: skew(-30deg);
+    transform: skew(-30deg);
+    background-color: #ffbe00;
+}
+
+.page-head-wrap {
+    z-index: 1;
+    float: left;
+    width: auto;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    line-height: normal;
+    text-transform: uppercase;
+    padding: 11px 35px 12px 20px;
 }
 
 /* 小屏幕（平板，大于等于 768px） */

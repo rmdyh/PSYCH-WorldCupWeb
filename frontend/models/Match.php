@@ -18,6 +18,7 @@ use Yii;
  * @property string $place
  * @property string $stage
  * @property string $url
+ * @property int $date
  *
  * @property PlayerMatch[] $playerMatches
  * @property Player[] $players
@@ -38,8 +39,8 @@ class Match extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['country', 'score', 'sec_country', 'sec_score', 'ID', 'time1', 'time2', 'time3', 'place', 'stage', 'url'], 'required'],
-            [['score', 'sec_score', 'ID'], 'integer'],
+            [['country', 'score', 'sec_country', 'sec_score', 'ID', 'time1', 'time2', 'time3', 'place', 'stage', 'url','date'], 'required'],
+            [['score', 'sec_score', 'ID','date'], 'integer'],
             [['country', 'sec_country', 'time1', 'time2', 'time3', 'place', 'stage'], 'string', 'max' => 200],
             [['url'], 'string', 'max' => 1000],
         ];
@@ -62,6 +63,7 @@ class Match extends \yii\db\ActiveRecord
             'place' => 'Place',
             'stage' => 'Stage',
             'url' => 'Url',
+            'date' =>'Date'
         ];
     }
 
