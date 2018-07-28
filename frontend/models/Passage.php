@@ -18,7 +18,6 @@ use Yii;
  *
  * @property Favorite[] $favorites
  * @property Match[] $matches
- * @property User $author0
  */
 class Passage extends \yii\db\ActiveRecord
 {
@@ -41,7 +40,6 @@ class Passage extends \yii\db\ActiveRecord
             [['content', 'status'], 'string'],
             [['title', 'date'], 'string', 'max' => 200],
             [['author'], 'string', 'max' => 255],
-            [['author_ID'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['author_ID' => 'id']],
         ];
     }
 
@@ -76,13 +74,5 @@ class Passage extends \yii\db\ActiveRecord
     public function getMatches()
     {
         return $this->hasMany(Match::className(), ['url' => 'ID']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAuthor0()
-    {
-        return $this->hasOne(User::className(), ['id' => 'author_ID']);
     }
 }
