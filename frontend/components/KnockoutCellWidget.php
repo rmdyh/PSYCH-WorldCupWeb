@@ -20,11 +20,12 @@ class KnockoutCellWidget extends Widget
     public $id;
     public $country_a;
     public $country_b;
-    public $date;
+    public $timestamp;
     public $position;
     public $score_a;
     public $score_b;
     public $url;
+    public $date;
 
     public function init()
     {
@@ -97,7 +98,7 @@ class KnockoutCellWidget extends Widget
             'id' => $this->id,
             'countryA' => $this->country_a,
             'countryB' => $this->country_b,
-            'date' => $this->date,
+            'timestamp' => $this->timestamp,
             'scoreA' => $this->score_a,
             'scoreB' => $this->score_b,
             'url' => $this->url,

@@ -3,6 +3,7 @@
 use frontend\components\NewsBarWidget;
 use frontend\components\CutBarWidget;
 use frontend\components\KnockoutCellWidget;
+use frontend\components\PageHeadWidget;
 use frontend\models\Match;
 use yii\helpers\Html;
 
@@ -11,60 +12,42 @@ use yii\helpers\Html;
 $this->title = 'PSYCH-WorldCup';
 ?>
 <div class="site-index">    
-    <?= CutBarWidget::widget([
-        'content' => '淘汰赛对阵',
-        'font' => "font-size: 140%; color: #555;margin-top: -3px;",
-        'divCss' => "padding:40px 0;",
-    ]) ?>
+    <?= PageHeadWidget::widget([
+        'text'=>"淘汰赛赛程"
+    ])?>
+
     <div class="knockout-match">
         <img class="bg" src="../web/static/against_bg.png"/>
-         <ul>
-          <<!--  <?php 
-          // foreach($model as $mat){
-          //       for($i=1;$i<=8;$i++)
-                   
-          //           echo KnockoutCellWidget::widget([
-          //               'id' => 1,
-          //               'country_a' => Html::encode("$mat->country"),
-          //               'country_b' => Html::encode("$mat->sec_country"),
-          //               'date' => date_create("2018-7-1 2:00"),
-          //               'position' => $i,
-          //               'score_a' => Html::encode("$mat->score"),
-          //               'score_b' => Html::encode("$mat->sec_score"),
-          //               'url'=>"#",
-           //         ]);
-       // }
-
-               // } 
-                ?>  -->
+            <ul>
                 <?php   $i=1;
-                foreach($model1 as $mat1):?>
-              <?php echo KnockoutCellWidget::widget([
-                        'id' => 1,
-                        'country_a' => Html::encode("$mat1->country"),
-                        'country_b' => Html::encode("$mat1->sec_country"),
-                        'date' => date_create("2018-7-1 2:00"),
-                        'position' => $i,
-                        'score_a' => Html::encode("$mat1->score"),
-                        'score_b' => Html::encode("$mat1->sec_score"),
-                        'url'=>"#",
-                    ]);
-                    if($i==4)
-                        {
-                         $i=13;
-                        }else{
-                     $i+=1;            
-                        }  ?>
- 
+                    foreach($model1 as $mat1):?>
+                    <?php 
+                        echo KnockoutCellWidget::widget([
+                            'id' => Html::encode("$mat1->ID"),
+                            'country_a' => Html::encode("$mat1->country"),
+                            'country_b' => Html::encode("$mat1->sec_country"),
+                            'timestamp' => $mat1->date,
+                            'position' => $i,
+                            'score_a' => Html::encode("$mat1->score"),
+                            'score_b' => Html::encode("$mat1->sec_score"),
+                            'url'=>"#",
+                        ]);
+                        if($i==4)
+                            {
+                            $i=13;
+                            }else{
+                        $i+=1;            
+                            }  
+                    ?>
                 <?php endforeach;?>
 
                 <?php   $i=5;
-                foreach($model2 as $mat2):?>
-              <?php echo KnockoutCellWidget::widget([
-                        'id' => 1,
+                    foreach($model2 as $mat2):?>
+                    <?php echo KnockoutCellWidget::widget([
+                        'id' => Html::encode("$mat2->ID"),
                         'country_a' => Html::encode("$mat2->country"),
                         'country_b' => Html::encode("$mat2->sec_country"),
-                        'date' => date_create("2018-7-1 2:00"),
+                        'timestamp' => $mat2->date,
                         'position' => $i,
                         'score_a' => Html::encode("$mat2->score"),
                         'score_b' => Html::encode("$mat2->sec_score"),
@@ -75,17 +58,17 @@ $this->title = 'PSYCH-WorldCup';
                          $i=11;
                         }else{
                      $i+=1;            
-                        }  ?>
- 
+                        }  
+                    ?>
                 <?php endforeach;?>
 
-                  <?php   $i=7;
-                foreach($model3 as $mat3):?>
-              <?php echo KnockoutCellWidget::widget([
-                        'id' => 1,
+                <?php   $i=7;
+                    foreach($model3 as $mat3):?>
+                    <?php echo KnockoutCellWidget::widget([
+                        'id' => Html::encode("$mat3->ID"),
                         'country_a' => Html::encode("$mat3->country"),
                         'country_b' => Html::encode("$mat3->sec_country"),
-                        'date' => date_create("2018-7-1 2:00"),
+                        'timestamp' => $mat3->date,
                         'position' => $i,
                         'score_a' => Html::encode("$mat3->score"),
                         'score_b' => Html::encode("$mat3->sec_score"),
@@ -96,51 +79,46 @@ $this->title = 'PSYCH-WorldCup';
                          $i=10;
                         }else{
                      $i+=1;            
-                        }  ?>
- 
+                        }  
+                    ?>
                 <?php endforeach;?>
 
-               <?php  $i=9;
-                foreach($model4 as $mat4):?>
-                  <?php echo KnockoutCellWidget::widget([
-                        'id' => 1,
+                <?php  $i=9;
+                    foreach($model4 as $mat4):?>
+                    <?php echo KnockoutCellWidget::widget([
+                        'id' => Html::encode("$mat4->ID"),
                         'country_a' => Html::encode("$mat4->country"),
                         'country_b' => Html::encode("$mat4->sec_country"),
-                        'date' => date_create("2018-7-1 2:00"),
+                        'timestamp' => $mat4->date,
                         'position' => $i,
                         'score_a' => Html::encode("$mat4->score"),
                         'score_b' => Html::encode("$mat4->sec_score"),
                         'url'=>"#",
                     ]);
-                  ?>
+                    ?>
                 <?php endforeach;?>
 
-                       <?php  $i=8;
-                foreach($model5 as $mat5):?>
-                  <?php echo KnockoutCellWidget::widget([
-                        'id' => 1,
+                <?php  $i=8;
+                    foreach($model5 as $mat5):?>
+                    <?php echo KnockoutCellWidget::widget([
+                        'id' => Html::encode("$mat5->ID"),
                         'country_a' => Html::encode("$mat5->country"),
                         'country_b' => Html::encode("$mat5->sec_country"),
-                        'date' => date_create("2018-7-1 2:00"),
+                        'timestamp' => $mat5->date,
                         'position' => $i,
                         'score_a' => Html::encode("$mat5->score"),
                         'score_b' => Html::encode("$mat5->sec_score"),
                         'url'=>"#",
                     ]);
-                  ?>
+                    ?>
                 <?php endforeach;?>
-
-                
-
         </ul> 
     </div>
-        
-    
 
-    <?= CutBarWidget::widget([
-        'content' => '最 新 动 态',
-        'font' => "font-size: 140%; color: #555;margin-top: -3px;"
+    <?= PageHeadWidget::widget([
+        'text' => "热门文章"
     ]) ?>
+
     <?php echo NewsBarWidget::widget([
         'title' => '2018世界杯“战报”:亚马逊上哪些国家级明星球员的球衣最热销?',
         'imgUrl'=> '../web/static/news/20180723/cosmic.jpg',

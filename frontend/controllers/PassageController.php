@@ -37,7 +37,10 @@ class PassageController extends Controller
     public function actionIndex()
     {
 
-        return $this->render('index');
+        $passage = Passage::find()->all();
+        return $this->render('index', [
+            'passage' => $passage,
+        ]);
     }
 
     /**

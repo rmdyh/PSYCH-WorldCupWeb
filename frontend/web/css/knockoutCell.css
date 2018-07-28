@@ -38,15 +38,23 @@
     display: inline-block;
     vertical-align: middle;
     margin: 7%;
+    position: relative;
 }
 
-.knockout-cell a .tx-in em {
+.knockout-cell a .tx-in .em {
     font-weight: bold;
 }
 
 .knockout-cell a .tx-in .teaminfo p {
     margin: 0;
+    position: absolute;
+    width: 100px;
+    display: inline-block;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -50px;
 }
+
 
 .knockout-cell a .tx-floating {
     opacity: 0;
@@ -126,8 +134,8 @@
 
 .teamflag_s {
     display: inline-block;
-    width: 26px;
-    height: 17px;
+    width: 30px;
+    height: 30px;
     background-size: 100% 100%
    /* background-image: url("../static/teamflag_26x17.jpg");*/
 }
@@ -137,28 +145,43 @@
     width: 64px;
     height: 64px;
     background-size: 100% 100%;
+    border: 1px solid #bbb;
 }
 
 .teamflag_7589_m {
     background-position: 0 0;
 }
 
-/* 中等屏幕（桌面显示器，大于等于 992px） */
 
-@media (max-width: 992px) {
-    .knockout-cell {
-        font-size: 80%;
-    }
-    .knockout-cell a .tx-in .teaminfo {
-        margin: -1%;
-    }
-}
 
 /* 大屏幕（大桌面显示器，大于等于 1200px） */
 
 @media (max-width: 1200px) {
     .knockout-cell a .tx-in .teaminfo {
         margin: 3%;
-        font-size: 90%;
+        font-size: 80%;
+    }
+
+    .knockout-cell a .tx-in .teaminfo p {
+        bottom: -16px;
+    }
+    .teamflag_s{
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+
+@media (max-width: 992px) {
+    .knockout-cell {
+        font-size: 70%;
+    }
+    .knockout-cell a .tx-in .teaminfo p {
+        bottom: -13px;
+    }
+    .teamflag_s {
+        width: 20px;
+        height: 20px;
     }
 }
