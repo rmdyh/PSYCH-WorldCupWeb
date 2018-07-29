@@ -1,7 +1,7 @@
-#config数据库配置文件
+﻿#config数据库配置文件
 /common/config/main-local.php
 /dbv-1.1/config.php
-
+/.idea
 # Windows:
 Thumbs.db
 ehthumbs.db
