@@ -39,14 +39,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php 
          foreach($player as $mat): ?>
         <div class="col-xs-6 col-md-3">
-            <div class="wrap-team-icon">
+               <?= Html::beginTag('a',['class'=> "wrap-team-icon" ,'href'=> "./?r=player%2Fview&id=".$mat->ID])?>
             <div class="wc-team-icon">
                 <div class="caption">
                     <p> <?= Html::encode("$mat->name") ?></p>
                 </div>
             </div>
+        </a>
             </div>
-        </div>
+     
         <?php endforeach;?>
     </div>
     <?php endforeach;?>
