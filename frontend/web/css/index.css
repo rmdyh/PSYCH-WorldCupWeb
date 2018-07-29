@@ -261,6 +261,47 @@ body{
     text-transform: uppercase;
     padding: 11px 35px 12px 20px;
 }
+/** Created by wzz 1610652 18/7/29
+* css for the relative passages in passage/view/
+*
+ */
+.thumbnail-relpassage{
+    height: 94.8px;
+    cursor: pointer;
+    transition: all 400ms ease;
+}
+.thumbnail-relpassage:hover{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 5px;
+    border-color: #fff;
+}
+
+.thumbnail-relpassage img{
+    padding: 0;
+    height: 85px;
+    position: absolute;
+    vertical-align:top;
+    width: 140px;
+}
+
+.thumbnail-relpassage .caption{
+    overflow: hidden;
+    margin-left: 140px;
+    height: 100%;
+    padding-left: 3%;
+}
+
+.thumbnail-relpassage .caption h3{
+    margin: 3px 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    pointer-events: none;
+}
+.thumbnail-relpassage .caption .caption-title{
+    white-space: nowrap;
+}
+.thumbnail-relpassage .caption hr{
+    margin-top: 5px;
+}
 
 /* 小屏幕（平板，大于等于 768px） */
 @media (max-width: 768px) {
