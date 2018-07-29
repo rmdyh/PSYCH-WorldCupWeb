@@ -233,35 +233,50 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-     public function actionMatch()
+     public function actionMatch($type="小组赛")
     {
-        $match;
- 
-      //  $match['A组']=Match::find()->where(['or',['country'=>'俄罗斯'],['sec_country'=>'俄罗斯']])->all();
-        $match['A组']=Match::find()->where(["stage" => "小组赛A"])->orderBy('time1','time2','time3')->all();
-        $match['B组']=Match::find()->where(["stage" => "小组赛B"])->orderBy('time1','time2','time3')->all();
-        $match['C组']=Match::find()->where(["stage" => "小组赛C"])->orderBy('time1','time2','time3')->all();
-        $match['D组']=Match::find()->where(["stage" => "小组赛D"])->orderBy('time1','time2','time3')->all();
-        $match['E组']=Match::find()->where(["stage" => "小组赛E"])->orderBy('time1','time2','time3')->all();
-        $match['F组']=Match::find()->where(["stage" => "小组赛F"])->orderBy('time1','time2','time3')->all();
-        $match['G组']=Match::find()->where(["stage" => "小组赛G"])->orderBy('time1','time2','time3')->all();
-        $match['H组']=Match::find()->where(["stage" => "小组赛H"])->orderBy('time1','time2','time3')->all();
+        if($type=="小组赛"){
+            $match;
+        //  $match['A组']=Match::find()->where(['or',['country'=>'俄罗斯'],['sec_country'=>'俄罗斯']])->all();
+            $match['A组']=Match::find()->where(["stage" => "小组赛A"])->orderBy('time1','time2','time3')->all();
+            $match['B组']=Match::find()->where(["stage" => "小组赛B"])->orderBy('time1','time2','time3')->all();
+            $match['C组']=Match::find()->where(["stage" => "小组赛C"])->orderBy('time1','time2','time3')->all();
+            $match['D组']=Match::find()->where(["stage" => "小组赛D"])->orderBy('time1','time2','time3')->all();
+            $match['E组']=Match::find()->where(["stage" => "小组赛E"])->orderBy('time1','time2','time3')->all();
+            $match['F组']=Match::find()->where(["stage" => "小组赛F"])->orderBy('time1','time2','time3')->all();
+            $match['G组']=Match::find()->where(["stage" => "小组赛G"])->orderBy('time1','time2','time3')->all();
+            $match['H组']=Match::find()->where(["stage" => "小组赛H"])->orderBy('time1','time2','time3')->all();
 
-        $group;
-        $group['A组']=Team::find()->where(["f_group" => "A"])->orderBy('jifen DESC')->all();
-        $group['B组']=Team::find()->where(["f_group" => "B"])->orderBy('jifen DESC')->all();
-        $group['C组']=Team::find()->where(["f_group" => "C"])->orderBy('jifen DESC')->all();
-        $group['D组']=Team::find()->where(["f_group" => "D"])->orderBy('jifen DESC')->all();
-        $group['E组']=Team::find()->where(["f_group" => "E"])->orderBy('jifen DESC')->all();
-        $group['F组']=Team::find()->where(["f_group" => "F"])->orderBy('jifen DESC')->all();
-        $group['G组']=Team::find()->where(["f_group" => "G"])->orderBy('jifen DESC')->all();
-        $group['H组']=Team::find()->where(["f_group" => "H"])->orderBy('jifen DESC')->all();
+            $group;
+            $group['A组']=Team::find()->where(["f_group" => "A"])->orderBy('jifen DESC')->all();
+            $group['B组']=Team::find()->where(["f_group" => "B"])->orderBy('jifen DESC')->all();
+            $group['C组']=Team::find()->where(["f_group" => "C"])->orderBy('jifen DESC')->all();
+            $group['D组']=Team::find()->where(["f_group" => "D"])->orderBy('jifen DESC')->all();
+            $group['E组']=Team::find()->where(["f_group" => "E"])->orderBy('jifen DESC')->all();
+            $group['F组']=Team::find()->where(["f_group" => "F"])->orderBy('jifen DESC')->all();
+            $group['G组']=Team::find()->where(["f_group" => "G"])->orderBy('jifen DESC')->all();
+            $group['H组']=Team::find()->where(["f_group" => "H"])->orderBy('jifen DESC')->all();
 
 
-        return $this->render('match',[
-            'matchs'=>$match,
-            'group'=>$group,
-        ]);
+            return $this->render('match',[
+                'type'=>$type,
+                'matchs'=>$match,
+                'group'=>$group,
+            ]);
+        }
+        else{
+            $match_;
+            $match_['1/8决赛'] = Match::find()->where(["stage" => "1/8决赛"])->orderBy('time1', 'time2', 'time3')->all();
+            $match_['1/4决赛'] = Match::find()->where(["stage" => "1/4决赛"])->orderBy('time1', 'time2', 'time3')->all();
+            $match_['半决赛'] = Match::find()->where(["stage" => "半决赛"])->orderBy('time1', 'time2', 'time3')->all();
+            $match_['3、4名决赛'] = Match::find()->where(["stage" => "3、4名决赛"])->orderBy('time1', 'time2', 'time3')->all();
+            $match_['1、2名决赛'] = Match::find()->where(["stage" => "1、2名决赛"])->orderBy('time1', 'time2', 'time3')->all();
+
+            return $this->render('match', [
+                'type'=>$type,
+                'match_' => $match_,
+            ]);
+        }
     }
 
     public function actionNews()
@@ -276,7 +291,7 @@ class SiteController extends Controller
 
        
     }
-     public function actionTeaminfo()
+    public function actionTeaminfo()
     {
          $teaminfo= Team::find()->where(["country" => "俄罗斯"])->all();
           return $this->render('teaminfo',[
@@ -285,21 +300,7 @@ class SiteController extends Controller
         ]);
       }
 
-    public function actionMatch_()
-    {
-        $match_;
-        $match_['1/8决赛']=Match::find()->where(["stage" => "1/8决赛"])->orderBy('time1','time2','time3')->all();
-        $match_['1/4决赛']=Match::find()->where(["stage" => "1/4决赛"])->orderBy('time1','time2','time3')->all();
-        $match_['半决赛']=Match::find()->where(["stage" => "半决赛"])->orderBy('time1','time2','time3')->all();
-        $match_['3、4名决赛']=Match::find()->where(["stage" => "3、4名决赛"])->orderBy('time1','time2','time3')->all();
-        $match_['1、2名决赛']=Match::find()->where(["stage" => "1、2名决赛"])->orderBy('time1','time2','time3')->all();
-        
-        return $this->render('match_',[
-            'match_'=>$match_,
-
-        ]);
-    }
-     public function actionPlayers()
+    public function actionPlayers()
     {
 
         $model = new Player();
