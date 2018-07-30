@@ -8,11 +8,14 @@ use frontend\models\Player;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 
+use yii\data\ActiveDataProvider;
+
+
 $this->title = '球员一览';
 $this->params['breadcrumbs'][] = $this->title;
                             
 ?>
-<?= Html::beginForm(['site/players'], 'get', ['enctype' => 'multipart/form-data']) ?>
+<?= Html::beginForm(['site/players'], 'get', ['enctype' => 'multipart/form-data','class'=>"form-inline"]) ?>
     <?php
         echo "球队检索:"; 
         echo Html::activeDropDownList($model, 'country',array_merge([""=>"全部"], ArrayHelper::map($data,'country', 'country'))); 

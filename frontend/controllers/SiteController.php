@@ -280,11 +280,6 @@ class SiteController extends Controller
         }
     }
 
-    public function actionNews()
-    {
-        return $this->render('news');
-    }
-
     public function actionTeams()
     {
        
@@ -321,10 +316,10 @@ class SiteController extends Controller
         ]);
 
     } 
-    public function actionPassage()
+    public function actionNews()
     {
         $passage=Passage::find()->all();
-        return $this->render('passage',[
+        return $this->render('news',[
             'passage'=>$passage,
         ]);
     }
