@@ -317,6 +317,7 @@ body{
 }
 .passage-msg p{
     display:inline-block;
+    margin-right:10px;
 }
 
 .page-head-border{
