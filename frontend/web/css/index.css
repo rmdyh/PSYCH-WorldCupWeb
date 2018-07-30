@@ -302,6 +302,21 @@ body{
 .thumbnail-relpassage .caption hr{
     margin-top: 5px;
 }
+.reply-body{
+    padding: 10px 32px;
+}
+.reply-content{
+    padding:2px 5px;
+}
+.reply-content p{
+    display: inline-block;
+    color: #99a1a7;
+    font-size: 12px;
+}
+
+.reply-content span{
+    display: block;
+}
 
 /* 小屏幕（平板，大于等于 768px） */
 @media (max-width: 768px) {
