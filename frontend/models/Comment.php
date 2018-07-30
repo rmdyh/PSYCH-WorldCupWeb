@@ -17,6 +17,7 @@ use Yii;
  * @property integer $parent
  *
  * @property User $user
+ * @property Passage $passage
  */
 class Comment extends \yii\db\ActiveRecord
 {
@@ -40,6 +41,7 @@ class Comment extends \yii\db\ActiveRecord
             [['username'], 'string', 'max' => 255],
             [['content', 'date'], 'string', 'max' => 200],
             [['user_ID'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_ID' => 'id']],
+            [['passage_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Passage::className(), 'targetAttribute' => ['passage_ID' => 'ID']],
         ];
     }
 
@@ -49,14 +51,14 @@ class Comment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'passage_ID' => Yii::t('app', '被评论的文章ID'),
-            'user_ID' => Yii::t('app', '评论者ID'),
-            'username' => Yii::t('app', '评论者姓名'),
-            'content' => Yii::t('app', '评论内容'),
-            'date' => Yii::t('app', '评论日期'),
-            'ID' => Yii::t('app', '发表的评论的标号'),
-            'status' => Yii::t('app', '评论状态（normal正常；delete评论被删除）'),
-            'parent' => Yii::t('app', '评论回复哪条评论'),
+            'passage_ID' => '被评论的文章ID',
+            'user_ID' => '评论者ID',
+            'username' => '评论者姓名',
+            'content' => '评论内容',
+            'date' => '评论日期',
+            'ID' => '发表的评论的标号',
+            'status' => '评论状态（normal正常；delete评论被删除）',
+            'parent' => '评论回复哪条评论',
         ];
     }
 
@@ -66,5 +68,13 @@ class Comment extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_ID']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPassage()
+    {
+        return $this->hasOne(Passage::className(), ['ID' => 'passage_ID']);
     }
 }
