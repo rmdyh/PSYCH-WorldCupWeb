@@ -6,6 +6,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use frontend\models\passage;
+use frontend\components\CutBarWidget;
 $this->title='This is the title';
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Passage */
@@ -42,6 +44,7 @@ $this->title='This is the title';
             <h1>Example page header <small>Subtext for header</small></h1>
         </div>
         <p class="passage-author text-right">作者:<a href="../user/view&id=1">admin</a> 发表于 2018/7/29</p>
+        <p class="text-right">关键词：a, b, c</p>
         <div class="passage-content">
             <h1>这是文章标题需要大写</h1>
             <h2>这是文章的副标题也要大写</h2>
@@ -61,7 +64,7 @@ $this->title='This is the title';
             <ol>
                 <li>有些东西要编号</li>
                 <li>还有些东西要编号</li>
-                <li></
+                <li></li>
             </ol>
             <blockquote>“据说引用别人的话要打引号” ——鲁迅
 
@@ -70,50 +73,70 @@ $this->title='This is the title';
 
             <img class="alignnone size-medium" src="https://tse3.mm.bing.net/th?id=OIP.OFwCUUmhnE2IBfZWXru1hAHaEl&amp;amp" width="474" height="293" />
         </div>
+        <!-- by wzz 18-7-30:
+        下面是将来对接数据库之后的版本demo，现在由于model还没有办法编译（表的实例还没有实现）所以不能用这个版本
 
-    </div>
-    <div class="postspan commentspan col-md-4 column " style="padding-top: 200px">
-        <!--p></p-->
-        <strong class="recommendPassage">Relative Passages</strong>
+            <?php /*$passage=Passage::find()->where(["ID" => $model->ID])->all();
+            foreach($passage as $psg): */?>
+            <?php /*
+               echo Html::encode("$psg->content")
+            */?>
+            <?php /*endforeach;*/?>
+
+         -->
         <hr>
-        <a class="relpassage bg-success" href="#" style="display:block; margin-bottom:10px">
+        <div class="text-right" style="margin-bottom:60px">
+            <div class="passageMsg">
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                <p style="display: inline-block; margin-right: 10px">114514</p>
+                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                <p style="display: inline-block; margin-right: 10px">1919</p>
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                <p style="display: inline-block; margin-right: 10px">810</p>
+            </div>
+        </div>
+    </div>
+    <div class="postspan commentspan col-md-4 column " style="padding-top: 40px">
+        <!--p></p-->
+        <div class="page-head-div"><span class="page-head-wrap">
+                <span class="page-head-font">相关文章推荐</span>
+            </span>
+        </div>
+        <a class="relpassage bg-success" href="#" style="display:block; margin:10px 0">
             <div class="thumbnail thumbnail-relpassage" >
                 <img class="hidden-xs" src="https://tse1.mm.bing.net/th?id=OIP.TqIbghYiQ7q587pYIgdVsQHaEo&pid=Api">
                 <div class="caption">
+                    <div class="passageMsg">
                     <p>New passage titles</p>
-                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="display: inline-block"></span>
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                     <p style="display: inline-block; margin-right: 10px">114514</p>
-                    <span class="glyphicon glyphicon-heart" aria-hidden="true" style="display: inline-block"></span>
+                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                     <p style="display: inline-block; margin-right: 10px">1919</p>
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true" style="display: inline-block"></span>
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                     <p style="display: inline-block; margin-right: 10px">810</p>
+                    </div>
                 </div>
             </div>
         </a>
+        <hr>
     </div>
 
 </div>
 <div class="row">
-    <div class="col-md-8 text-right" style="margin-bottom:60px">
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="display: inline-block"></span>
-        <p style="display: inline-block; margin-right: 10px">114514</p>
-        <span class="glyphicon glyphicon-heart" aria-hidden="true" style="display: inline-block"></span>
-        <p style="display: inline-block; margin-right: 10px">1919</p>
-        <span class="glyphicon glyphicon-comment" aria-hidden="true" style="display: inline-block"></span>
-        <p style="display: inline-block; margin-right: 10px">810</p>
-    </div>
-</div>
-<div class="row">
     <div class="commentspan col-md-8">
+        <div class="page-head-div"><span class="page-head-wrap">
+                <span class="page-head-font">评论</span>
+            </span>
+        </div>
         <div class="media">
             <div class="media-left">
                 <a href="#">
-                    <img class="media-object" src="..." alt="...">
+                    <img class="media-object" src="http://emoji.fileformat.info/gemoji/laughing.png" alt="...">
                 </a>
             </div>
             <div class="media-body">
                 <span class="media-heading" style="display:inline-block; margin-right:10px" >Media heading</span>
-                <span class="time" style="display:inline-block">2 days ago</span>
+                <span class="time" style="display:inline-block">2 天前</span>
                 <div>NM$L, WSNGG, WMLGDSNMDEZ.</div>
                 <a href="#comments" onclick="reply(1)">回复</a>
             </div>
@@ -129,12 +152,12 @@ $this->title='This is the title';
                 </div>
             <div class="media-left">
                 <a href="#">
-                    <img class="media-object" src="..." alt="...">
+                    <img class="media-object" src="http://emoji.fileformat.info/gemoji/broken_heart.png" alt="...">
                 </a>
             </div>
             <div class="media-body">
                 <span class="media-heading" style="display:inline-block; margin-right:10px" >Media heading</span>
-                <span class="time" style="display:inline-block">2 days ago</span>
+                <span class="time" style="display:inline-block">2 天前</span>
                 <div>hello world</div>
                 <a href="#comments" onclick="reply(1)">回复</a>
             </div>

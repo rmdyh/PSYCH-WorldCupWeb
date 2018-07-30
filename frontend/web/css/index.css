@@ -261,7 +261,7 @@ body{
 }
 /** Created by wzz 1610652 18/7/29
 * css for the relative passages in passage/view/
-*
+* thumbnail-relpassage, .reply-%, .passageMsg
  */
 .thumbnail-relpassage{
     height: 94.8px;
@@ -314,6 +314,9 @@ body{
 
 .reply-content span{
     display: block;
+}
+.passage-msg p{
+    display:inline-block;
 }
 
 .page-head-border{
