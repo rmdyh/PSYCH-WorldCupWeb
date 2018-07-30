@@ -12,6 +12,7 @@ use common\models\LoginForm;
  */
 class SiteController extends Controller
 {
+public $layout="main_layout";
     /**
      * @inheritdoc
      */
@@ -95,4 +96,7 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+    // public function actionsay($message ='你好'){
+    //     return $this->render('say',['message'=>$message]);
+    // }
 }

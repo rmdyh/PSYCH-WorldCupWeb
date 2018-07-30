@@ -18,3 +18,10 @@ $(".back-to-top").click(function(){
         easing: "easeOutQuart"
     });
 })
+let bg = $(".select-number");
+$(".select-option").mouseenter(function (event) {
+    bg.addClass(event.currentTarget.innerText == "小组赛" ? "op1-temp" : "op2-temp");
+});
+$(".select-option").mouseleave(function (event) {
+    bg.removeClass(event.currentTarget.innerText == "小组赛" ? "op1-temp" : "op2-temp");
+});

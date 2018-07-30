@@ -229,7 +229,6 @@ body{
     overflow: hidden;
     position: relative;
     background: #e7eaf0;
-    margin-bottom: 30px;
 }
 
 .page-head-wrap::before {
@@ -255,7 +254,6 @@ body{
     width: auto;
     color: #fff;
     font-size: 20px;
-    font-weight: bold;
     position: relative;
     line-height: normal;
     text-transform: uppercase;
@@ -318,11 +316,87 @@ body{
     display: block;
 }
 
+.page-head-border{
+    width: 100%;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    border-color: #d7d8d8;
+}
+
+.table{
+    margin:0;
+}
+
+.select-wrap{
+    width: 70%;
+    margin: auto;
+    border: 2px solid #ffbe00;
+    color: #ffbe00;
+    position: relative;
+    cursor: pointer;
+}
+.select-wrap .select-option {
+    padding: 5px 0;
+    display: inline-block;
+    text-align: center;
+    font-size: 130%;
+    width: 50%;
+    position: relative;
+    transition: all 200ms ease;
+}
+.select-wrap .op1 .select-option:nth-child(1),
+.select-wrap .op2 .select-option:nth-child(2) {
+    color: #fff;
+}
+.select-wrap .op1 .select-option:nth-child(2),
+.select-wrap .op2 .select-option:nth-child(1) {
+    color: #ffbe00;
+}
+.select-wrap .op1-temp .select-option:nth-child(1),
+.select-wrap .op2-temp .select-option:nth-child(2) {
+    color: #fff;
+}
+.select-wrap .op1-temp .select-option:nth-child(2),
+.select-wrap .op2-temp .select-option:nth-child(1) {
+    color: #ffbe00;
+}
+.select-wrap .bg{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background: #ffbe00;
+    transition: left 300ms ease;
+    z-index: -1;
+}
+.select-wrap .op1 .bg{
+    left: 0;
+}
+.select-wrap .op2 .bg{
+    left: 50%;
+}
+.select-wrap .op1-temp .bg {
+    left: 0;
+}
+.select-wrap .op2-temp .bg {
+    left: 50%;
+}
+.select-wrap .cut{
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    background: #fff;
+    left: 50%;
+}
+
 /* 小屏幕（平板，大于等于 768px） */
 @media (max-width: 768px) {
     .thumbnail-news .caption {
         margin-left: 0;
         padding-left: 9px;
+    }
+    .select-wrap{
+        width: 100%;
     }
 }
 
