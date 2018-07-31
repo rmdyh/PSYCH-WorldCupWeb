@@ -45,6 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'get_score',
             'lose_score',
             'jing_score',
+            'status',
+            'year',
         ],
     ]) ?>
 

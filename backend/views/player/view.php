@@ -49,6 +49,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'hongpai',
             'huangpai',
             'click',
+            'status',
+            'year',
         ],
     ]) ?>
 

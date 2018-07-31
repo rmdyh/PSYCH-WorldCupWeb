@@ -11,6 +11,7 @@ use frontend\models\Favorite;
 use frontend\models\Passage;
 use frontend\models\Comment;
 use frontend\models\PassageKey;
+use yii\widgets\ActiveForm;
 $this->title=$model->title;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Passage */
@@ -83,6 +84,8 @@ $this->title=$model->title;
     </div>
  <?php 
 // $key=passagekey::find()->select(["keyword"])->where(["passage_ID" => $model->ID]);
+//  var_dump($key);
+//  return;
 // $related=passagekey::find()->select(["passage_ID"])->where(["keyword"=>$key]);
 // $passage_related=passage::find()->where(["ID"=>$related])->all();
 ?>
@@ -155,13 +158,30 @@ $this->title=$model->title;
         <!--  评论回复parent具体不太会操作 -->
         <hr>
 
+        <div class="comment-create">
+            <?php $form = ActiveForm::begin(['action' => '?r=passage/create']); ?>
+            <?= $form->field($commentd, 'content')->textInput(['maxlength' => true]);?>
+            <?= $form->field($commentd, 'passage_ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false)?>
+            <?= $form->field($commentd, 'user_ID')->textInput()->hiddenInput(['value'=>'1'])->label(false)?>
+            <?= $form->field($commentd, 'username')->textInput()->hiddenInput(['value'=>'visitor'])->label(false)?>
+            <?= $form->field($commentd, 'date')->textInput()->hiddenInput(['value'=>'2018-8-7'])->label(false)?>
+            <?= $form->field($commentd, 'status')->textInput()->hiddenInput(['value'=>'normal'])->label(false)?>
+            <?= $form->field($commentd, 'parent')->textInput()->hiddenInput(['value'=>'0'])->label(false)?>
+            <?= $form->field($commentd, 'ID')->textInput()->hiddenInput(['ID'=>''])->label(false)?>
+        </div>
+                <div>
+                    <?= Html::submitButton('save', ['class' => 'btn btn-primary'])?>
+                </div>
+        <?php ActiveForm::end();?>
+        </div>
+
         <!--  评论和后台的对接不太会 -->
-        <form id="comments">
-            <strong>回复评论。您的评论将会对所有用户可见。</strong>
-            <textarea name="commentarea" id="commentarea" class="form-control" rows="4" style="margin:16px 0"></textarea>
-            <button class="btn btn-primary" type="submit">
-                提交
-            </button>
-        </form>
+<!--        <form id="comments">-->
+<!--            <strong>回复评论。您的评论将会对所有用户可见。</strong>-->
+<!--            <textarea name="commentarea" id="commentarea" class="form-control" rows="4" style="margin:16px 0"></textarea>-->
+<!--            <button class="btn btn-primary" type="submit">-->
+<!--                提交-->
+<!--            </button>-->
+<!--        </form>-->
     </div>
 </div>
