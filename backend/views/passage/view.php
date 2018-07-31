@@ -42,7 +42,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <div class="preview">
+    <p> 文章预览</p>
+    <hr>
     <div>
-
+        <?= HTML::encode($model->content)?>
     </div>
+    <?php if($model->status == 'pending'){
+        echo "  
+            <div class=\"text-right\">
+                <p style=\"display: inline-block\">审核结果：</p>
+                <button type=\"button\" class=\"btn btn-success\" onclick=\"\">通过</button>
+                <button type=\"button\" class=\"btn btn-warning\" onclick=\"\">不通过</button>
+            </div>";
+    }else if($model->status == 'success')
+        {echo "
+            <div class=\"text-right\">
+                <p style=\"display: inline-block\">文章操作：</p>
+                <button type=\"button\" class=\"btn btn-success\" onclick=\"\">删除</button>
+            </div>
+        ";}
+    else{ //aborted
+
+    }
+        ?>
+
 </div>
