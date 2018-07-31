@@ -393,6 +393,43 @@ body{
     left: 50%;
 }
 
+.team-info .text .counter{
+    display: block;
+    font-size: 150%;
+}
+.team-info .text .tag {
+    color: #888;
+    padding-bottom: 20px;
+    display: block;
+}
+.team-flag{
+    text-align: center;
+}
+.team-flag img{
+    height: 190px;
+    width: 190px;
+    margin: 10px 0;
+    border: 1px solid #bbb;
+}
+.team-name{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.page-wrap{
+    padding: 10px;
+}
+
+.padding-none{
+    padding: 0;
+}
+.margin-none{
+    margin: 0;
+}
+.text-center{
+    text-align: center;
+}
+
 /* 小屏幕（平板，大于等于 768px） */
 @media (max-width: 768px) {
     .thumbnail-news .caption {
