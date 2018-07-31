@@ -50,6 +50,9 @@ class PassageController extends Controller
      */
     public function actionView($id)
     {
+        $post = Passage::findOne($id);
+
+        $post->updateCounters(['seen' => 1]);
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);

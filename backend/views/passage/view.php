@@ -10,7 +10,7 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Passages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="passage-view">
+< class="passage-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -39,4 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+
+
+<div class="preview">
+    <div>
+
+    </div>
 </div>
