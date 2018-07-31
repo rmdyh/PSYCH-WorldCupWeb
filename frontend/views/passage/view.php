@@ -10,6 +10,7 @@ use yii\helpers\URL;
 use frontend\models\Favorite;
 use frontend\models\Passage;
 use frontend\models\Comment;
+use frontend\models\PassageKey;
 $this->title=$model->title;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Passage */
@@ -48,7 +49,7 @@ $this->title=$model->title;
         <h2><?=$model->title?></h2>
     </div>
     <p class="passage-author text-right">作者:<a href="../user/view&id=1"><?=$model->author?></a> 发表于 <?=$model->date?></p>
-    <p class="text-right">标签: a, b, c</p>
+ 
     <div class="passage-content">
         <?=$model->content?>
         <br>
@@ -80,11 +81,17 @@ $this->title=$model->title;
                 </span>
             </span>
     </div>
+ <?php 
+// $key=passagekey::find()->select(["keyword"])->where(["passage_ID" => $model->ID]);
+// $related=passagekey::find()->select(["passage_ID"])->where(["keyword"=>$key]);
+// $passage_related=passage::find()->where(["ID"=>$related])->all();
+?>
+
     <a class="relpassage bg-success" href="#" style="display:block; margin:10px 0;">
         <div class="thumbnail thumbnail-relpassage" >
             <img class="hidden-xs" src="https://tse1.mm.bing.net/th?id=OIP.TqIbghYiQ7q587pYIgdVsQHaEo&pid=Api">
             <div class="caption">
-                <p>New passage titles</p>
+                <p>1</p>
                 <div class="passage-msg">
                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="display: inline-block"></span>
                     <p>114514</p>
@@ -158,3 +165,8 @@ $this->title=$model->title;
         </form>
     </div>
 </div>
+
+<!--收藏按钮-->
+<a class="fav-icon" title="喜欢！收藏这篇文章">
+    <span class="glyphicon glyphicon-heart"></span>
+</a>

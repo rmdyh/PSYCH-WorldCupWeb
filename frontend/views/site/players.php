@@ -3,11 +3,11 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
-use frontend\models\Player;
 use yii\widgets\ActiveForm;
+use frontend\models\Player;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
-
+use frontend\components\PageHeadWidget;
 use yii\data\ActiveDataProvider;
 
 
@@ -15,26 +15,31 @@ $this->title = '球员一览';
 $this->params['breadcrumbs'][] = $this->title;
                             
 ?>
-<form class="form-inline" method="post" action="">
-  <div class="form-group">
-    <label class="sr-only" for="exampleInputAmount">要查找的队员姓名</label>
-    <div class="input-group">
-      <input type="text" class="form-control" name="exampleInputAmount" placeholder="要查找的队员姓名">
+<?= Html::beginForm(['site/players'], 'get', ['enctype' => 'multipart/form-data','class'=>"form-inline"]) ?>
+    <?php
+        echo "球队检索:   "; 
+        echo Html::activeDropDownList($model, 'country',array_merge([""=>"全部"], ArrayHelper::map($data,'country', 'country'))); 
+    ?>
+    <div class="form-group">
+        <div class="col-lg-offset-1 col-lg-11">
+            <?= Html::submitButton('查询', ['class' => 'btn btn-primary']) ?>
+        </div>
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">快速查找</button>
-</form>
-
-
-  
+    
+<!--button class="btn btn-default" type="submit">确定</button>
+<input type="text" class="form-control" placeholder="Text input">
+<button class="btn btn-default" type="submit">确定</button-->
+<?= Html::endForm() ?>
 
 
 <br>
 <br>
 <br>
 <?php foreach ($players as $label => $player): ?> 
- <?= $label?> 
-
+ <?php PageHeadWidget::begin([
+            'text' => $label,
+            'hasBorder' => true,
+        ])?>
 
 <!-- <div class="team-group"> -->
 
@@ -47,9 +52,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php 
          foreach($player as $mat): ?>
+    
+
         <div class="col-xs-6 col-md-3">
+
                <?= Html::beginTag('a',['class'=> "wrap-team-icon" ,'href'=> "./?r=player%2Fview&id=".$mat->ID])?>
             <div class="wc-team-icon">
+
                 <div class="caption">
                     <p> <?= Html::encode("$mat->name") ?></p>
                 </div>

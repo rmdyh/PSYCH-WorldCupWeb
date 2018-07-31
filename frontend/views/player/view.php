@@ -5,6 +5,7 @@ use yii\widgets\DetailView;
 use frontend\models\Player;
 use frontend\models\Match;
 use frontend\models\PlayerMatch;
+use frontend\components\PageHeadWidget;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Player */
@@ -14,7 +15,10 @@ $this->params['breadcrumbs'][] = ['label' => 'Players', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="player-view">
-
+<?php PageHeadWidget::begin([
+                   'text' => "球员基本信息",
+                    'hasBorder' => true,
+                     ]) ?>
     <h1><?= Html::encode($this->title) ?></h1>
 
  <!--    <p>
@@ -56,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 
-
+ 
      <div class="col-md-4">
        
     </div>
@@ -123,7 +127,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                    
 
       </div>
-
+<?php PageHeadWidget::begin([
+                   'text' => "本届世界杯技术统计",
+                    'hasBorder' => true,
+                     ]) ?>
       <table class="table table-striped table-hover table table-bordered" style="margin-top:0">
     <tr>
          <th>
@@ -218,7 +225,10 @@ $this->params['breadcrumbs'][] = $this->title;
     
   </table>
 
-
+<?php PageHeadWidget::begin([
+                   'text' => "球员各场比赛技术统计",
+                    'hasBorder' => true,
+                     ]) ?>
 <div class="col-md-4">
     <br>
     <br>

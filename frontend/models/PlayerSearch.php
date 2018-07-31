@@ -6,6 +6,8 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\Player;
+use yii\data\Pagination;
+use yii\data\Sort;
 
 /**
  * PlayerSearch represents the model behind the search form about `frontend\models\Player`.
@@ -47,6 +49,14 @@ class PlayerSearch extends Player
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => new Pagination([
+                'pageSize' => $query->count(),
+            ]),
+            'sort' => new Sort([
+                'attributes' => [
+                    'ID','country'
+                ],
+            ])
         ]);
 
         $this->load($params);

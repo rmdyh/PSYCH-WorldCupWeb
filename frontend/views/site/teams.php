@@ -4,6 +4,7 @@ use frontend\components\NewsBarWidget;
 use frontend\models\Match;
 use yii\helpers\Html;
 use frontend\models\Team;
+use frontend\components\PageHeadWidget;
 
 /* @var $this yii\web\View */
 
@@ -15,6 +16,7 @@ $this->title = '球队一览-PSYCH-WorldCup';
         <?php
             $groups=["A", "B", "C", "D", "E", "F", "G", "H"];
             foreach ($groups as $group) :?>
+             
             <div class="col-md-6 col-xs-12">
                 <div class="wc-hd">
                     <span><?=$group?>组</span>
