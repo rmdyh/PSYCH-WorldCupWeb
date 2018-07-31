@@ -140,7 +140,7 @@ body{
     padding-top: 40px;
 }
 
-.back-to-top{
+.back-to-top,.fav-icon{
     position: fixed;
     right: 0;
     bottom: 100px;
@@ -153,7 +153,10 @@ body{
     opacity: 1;
     cursor: pointer;
 }
-.back-to-top:hover{
+.fav-icon{
+    bottom: 150px;
+}
+.back-to-top:hover,.fav-icon:hover{
     background-color: rgba(0,0,0,0.4);
     color: white;
 }

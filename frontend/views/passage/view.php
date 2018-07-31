@@ -165,3 +165,8 @@ $this->title=$model->title;
         </form>
     </div>
 </div>
+
+<!--收藏按钮-->
+<a class="fav-icon" title="喜欢！收藏这篇文章">
+    <span class="glyphicon glyphicon-heart"></span>
+</a>

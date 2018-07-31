@@ -103,7 +103,7 @@ AppAsset::register($this);
     </div>
 </div>
 
-<a class="back-to-top invalidate">
+<a class="back-to-top invalidate" title="回到顶部">
     <span class="glyphicon glyphicon-chevron-up"></span>
 </a>
 
