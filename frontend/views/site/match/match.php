@@ -47,7 +47,7 @@ use frontend\components\PageHeadWidget;
             'text' => $label."赛程",
             'hasBorder' => true,
         ])?>
-        <div style="padding:5px 5px 10px">
+        <div>
             <table class="table table-striped">
                 <thead><tr>
                     <th>比赛时间</th>

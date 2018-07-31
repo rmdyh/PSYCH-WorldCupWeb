@@ -9,6 +9,7 @@ use frontend\models\Player;
 use frontend\components\NewsBarWidget;
 use frontend\models\Match;
 use frontend\models\TeamMatch;
+use frontend\components\PageHeadWidget;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Team */
@@ -18,8 +19,11 @@ $this->params['breadcrumbs'][] = ['label' => 'Teams', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="team-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<?php PageHeadWidget::begin([
+                   'text' => "球队基本信息",
+                    'hasBorder' => true,
+                     ]) ?>
+   <h1><?= Html::encode($this->title) ?></h1> 
 
  <!--    <p>
         <?= Html::a('Update', ['update', 'id' => $model->country], ['class' => 'btn btn-primary']) ?>
@@ -52,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'jing_score',
         ],
     ]) ?>
+   
     <div class="col-md-4">
         <img src=<?php echo URL::to('static/country/'.$model->country.'.png')?> alt>
         <!-- <img src=<?php echo URL::to('static/country/俄罗斯.png')?> alt> -->
@@ -111,8 +116,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
 
       </div>
-                         
-
+                       
+ <?php PageHeadWidget::begin([
+                   'text' => "对内球员本届世界杯技术统计",
+                    'hasBorder' => true,
+                     ]) ?>
+                     <br>
+                     <br>
  <table class="table table-striped table-hover table table-bordered" style="margin-top:0">
     <tr>
        <th>
@@ -160,7 +170,12 @@ $this->params['breadcrumbs'][] = $this->title;
    <?php endforeach;?>
   </table>
 
-
+ <?php PageHeadWidget::begin([
+                   'text' => "球队本届世界杯各场比赛技术统计",
+                    'hasBorder' => true,
+                     ]) ?>
+                     <br>
+                     <br>
  <div class="col-md-4">
    <table class="table table-striped table-hover">
     <tr>

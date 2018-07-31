@@ -7,7 +7,7 @@ use yii\widgets\ActiveForm;
 use frontend\models\Player;
 use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
-
+use frontend\components\PageHeadWidget;
 use yii\data\ActiveDataProvider;
 
 
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <?= Html::beginForm(['site/players'], 'get', ['enctype' => 'multipart/form-data','class'=>"form-inline"]) ?>
     <?php
-        echo "球队检索:"; 
+        echo "球队检索:   "; 
         echo Html::activeDropDownList($model, 'country',array_merge([""=>"全部"], ArrayHelper::map($data,'country', 'country'))); 
     ?>
     <div class="form-group">
@@ -36,8 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <br>
 <br>
 <?php foreach ($players as $label => $player): ?> 
- <?= $label?> 
-
+ <?php PageHeadWidget::begin([
+            'text' => $label,
+            'hasBorder' => true,
+        ])?>
 
 <!-- <div class="team-group"> -->
 
@@ -50,9 +52,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php 
          foreach($player as $mat): ?>
+    
+
         <div class="col-xs-6 col-md-3">
+
                <?= Html::beginTag('a',['class'=> "wrap-team-icon" ,'href'=> "./?r=player%2Fview&id=".$mat->ID])?>
             <div class="wc-team-icon">
+
                 <div class="caption">
                     <p> <?= Html::encode("$mat->name") ?></p>
                 </div>
