@@ -28,6 +28,8 @@ use Yii;
  * @property integer $hongpai
  * @property integer $huangpai
  * @property integer $click
+ * @property string $status
+ * @property integer $year
  *
  * @property Team $country0
  * @property PlayerMatch[] $playerMatches
@@ -49,8 +51,9 @@ class Player extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ID', 'haoma', 'country', 'name', 'postion', 'height', 'weight', 'birthdate', 'attended', 'totaltime', 'image', 'jinqiu', 'zhugong', 'shemen', 'shezheng', 'chuanqiu', 'shiqiu', 'pujiu', 'hongpai', 'huangpai', 'click'], 'required'],
-            [['ID', 'haoma', 'attended', 'totaltime', 'jinqiu', 'zhugong', 'shemen', 'shezheng', 'chuanqiu', 'shiqiu', 'pujiu', 'hongpai', 'huangpai', 'click'], 'integer'],
+            [['ID', 'haoma', 'country', 'name', 'postion', 'height', 'weight', 'birthdate', 'attended', 'totaltime', 'image', 'jinqiu', 'zhugong', 'shemen', 'shezheng', 'chuanqiu', 'shiqiu', 'pujiu', 'hongpai', 'huangpai', 'click', 'status'], 'required'],
+            [['ID', 'haoma', 'attended', 'totaltime', 'jinqiu', 'zhugong', 'shemen', 'shezheng', 'chuanqiu', 'shiqiu', 'pujiu', 'hongpai', 'huangpai', 'click', 'year'], 'integer'],
+            [['status'], 'string'],
             [['country', 'name', 'postion', 'weight', 'birthdate'], 'string', 'max' => 200],
             [['height'], 'string', 'max' => 20],
             [['image'], 'string', 'max' => 1000],
@@ -85,6 +88,8 @@ class Player extends \yii\db\ActiveRecord
             'hongpai' => '总红牌数',
             'huangpai' => '总黄牌数',
             'click' => '球员被点击次数',
+            'status' => '球队状态',
+            'year' => '年份',
         ];
     }
 

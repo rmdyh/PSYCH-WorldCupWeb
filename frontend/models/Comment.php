@@ -35,8 +35,8 @@ class Comment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['passage_ID', 'user_ID', 'username', 'content', 'date', 'ID'], 'required'],
-            [['passage_ID', 'user_ID', 'ID', 'parent'], 'integer'],
+            [['passage_ID', 'user_ID', 'parent'], 'integer'],
+            [['user_ID', 'username', 'content', 'date'], 'required'],
             [['status'], 'string'],
             [['username'], 'string', 'max' => 255],
             [['content', 'date'], 'string', 'max' => 200],

@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Comment;
 use Yii;
 use frontend\models\Passage;
 use frontend\models\PassageSearch;
@@ -50,11 +51,10 @@ class PassageController extends Controller
      */
     public function actionView($id)
     {
-        $post = Passage::findOne($id);
-
-        $post->updateCounters(['seen' => 1]);
+        $commentd = new Comment();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'commentd' => $commentd,
         ]);
     }
 
@@ -65,14 +65,25 @@ class PassageController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Passage();
+        $model = new Comment();
+//        $model->ID='';
+//        $model->content='123213';
+//        $model->date='13243';
+//        $model->parent='0';
+//        $model->passage_ID='1';
+//        $model->user_ID='5';
+//        $model->username='1';
+//        $model->status='normal';
+//        $model->save();
+      
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+            return $this->redirect(['view','id' => $model->passage_ID]);
         } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+           // return $this->redirect(['view','id' => 2]);
+           return $this->render('create', [
+               'model' => $model,
+           ]);
         }
     }
 

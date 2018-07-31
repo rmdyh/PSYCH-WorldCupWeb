@@ -24,6 +24,8 @@ use Yii;
  * @property integer $get_score
  * @property integer $lose_score
  * @property integer $jing_score
+ * @property string $status
+ * @property integer $year
  *
  * @property Player[] $players
  * @property TeamMatch[] $teamMatches
@@ -46,8 +48,8 @@ class Team extends \yii\db\ActiveRecord
     {
         return [
             [['country', 'coach', 'history', 'jointime', 'createtime', 'attendedtime', 'rank', 'image', 'introduction', 'f_group', 'jifen', 'win', 'lose', 'equal', 'get_score', 'lose_score', 'jing_score'], 'required'],
-            [['history', 'jointime', 'createtime', 'attendedtime', 'rank', 'jifen', 'win', 'lose', 'equal', 'get_score', 'lose_score', 'jing_score'], 'integer'],
-            [['introduction'], 'string'],
+            [['history', 'jointime', 'createtime', 'attendedtime', 'rank', 'jifen', 'win', 'lose', 'equal', 'get_score', 'lose_score', 'jing_score', 'year'], 'integer'],
+            [['introduction', 'status'], 'string'],
             [['country', 'coach'], 'string', 'max' => 200],
             [['image'], 'string', 'max' => 1000],
             [['f_group'], 'string', 'max' => 10],
@@ -77,6 +79,8 @@ class Team extends \yii\db\ActiveRecord
             'get_score' => '小组赛进球数',
             'lose_score' => '小组赛失球数',
             'jing_score' => '小组赛净胜球',
+            'status' => '状态',
+            'year' => '年份',
         ];
     }
 
