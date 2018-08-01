@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
         foreach($res as $cols):?>
         <tr>
             <td>
-                <?= $cols->id?>
+                <?= $cols->ID?>
             </td>
             <td>
                 <?= $cols->author?>
@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $cols->title?>
             </td>
             <td>
-                <a href="http://localhost/PSYCH-WorldCupWeb/backend/web/index.php?r=passage%2Fview&id=<?= $cols->id?>">详细信息</a>
+                <a href="http://localhost/PSYCH-WorldCupWeb/backend/web/index.php?r=passage%2Fview&id=<?= $cols->ID?>">详细信息</a>
             </td>
         </tr>
         <?php endforeach;?>

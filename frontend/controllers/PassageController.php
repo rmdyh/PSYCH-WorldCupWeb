@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\models\Favorite;
+use frontend\models\PassageKey;
 
 /**
  * PassageController implements the CRUD actions for Passage model.
@@ -54,10 +55,14 @@ class PassageController extends Controller
     {
         $post=Passage::findOne($id);
         $post->updateCounters(['seen'=>1]);
-       $amount=favorite::find()->where(["passage_ID" => $id])->count();
-       $amount1=comment::find()->where(["passage_ID" => $id])->count();
-       $comment1=comment::find()->where(["passage_ID" => $id])->all();
+        $amount=favorite::find()->where(["passage_ID" => $id])->count();
+        $amount1=comment::find()->where(["passage_ID" => $id])->count();
+        $comment1=comment::find()->where(["passage_ID" => $id])->all();
         $commentd = new Comment();
+        $keys = $post->passageKeys->select(["keyword"]);
+        $relation = PassageKey::findAll($keys);
+        var_dump($relation);
+        return;
 
         return $this->render('view', [
             'model' => $this->findModel($id),

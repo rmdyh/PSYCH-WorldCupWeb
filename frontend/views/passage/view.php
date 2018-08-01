@@ -40,6 +40,7 @@ $this->title=$model->title;
         alert(window.location.href + (getUrlParam('repid')?('&repid=' + recid):'') + '#comment');
         var something = getUrlParam('repid');
     */
+        $('#comment-parent').val(recname);
         $('#commentarea').val("< Re: " + recname + " content: " + content + " >");
     }
 </script>
