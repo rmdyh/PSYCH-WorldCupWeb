@@ -7,6 +7,7 @@ use frontend\components\PageHeadWidget;
 use frontend\models\Match;
 use yii\helpers\Html;
 
+
 /* @var $this yii\web\View */
 
 $this->title = 'PSYCH-WorldCup';
@@ -115,30 +116,93 @@ $this->title = 'PSYCH-WorldCup';
         </ul> 
     </div>
 
-    <?= PageHeadWidget::widget([
-        'text' => "热门文章"
-    ]) ?>
+ 
+   
+    <div class="col-lg-5 col-md-5">
+           
+            <table class="table table-striped" style="margin-top:0">
+                 <?php PageHeadWidget::begin([
+            'text' => "射手榜",
+            'hasBorder' => true,
+        ]) ?>
+                <thead>
+                    <tr>
+                        <th>
+                            球员姓名
+                        </th>
+                        <th>
+                            所属国家
+                        </th>
+                        <th>
+                            进球数
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
 
-    <?php echo NewsBarWidget::widget([
-        'title' => '2018世界杯“战报”:亚马逊上哪些国家级明星球员的球衣最热销?',
-        'imgUrl'=> './static/news/20180723/cosmic.jpg',
-        'brief'=>'国际足联世界杯（FIFA）是世界上最高规格、最高竞技水平、最高知名度的足球
-                比赛，共有32支球队参加，进行64场比赛，分别在11个不同的主办城市的12座体育场进行。
-                根据国际足联的数据显示，2014年世界杯的收视率创下世界纪录，观看世界杯的观众超过32亿，
-                其中，有超过10亿观众观看德国和阿根廷之间的决赛。在美国，观看世界杯的人数一直在增长，
-                今年美国有望成为史上观看世界杯人数最多的国家。 ',
-    ]) ?>
-    <?php echo NewsBarWidget::widget([
-        'title' => 'title',
-        'imgUrl'=> './static/news/20180723/cosmic.jpg',
-        'brief'=>'a brief',
-    ]) ?>
+            foreach($sheshou as $mat): ?>
 
-    <div class="link-big text-right">
-        <a href="./#">
-            更多最新世界杯动态、对阵战报？立即查看
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
+                    <tr>
+                        <td>
+                            <?= Html::beginTag('a',['href'=> "./?r=player%2Fview&id=".$mat->ID])?>
+                                <?= Html::encode("$mat->name") ?>
+                        </td>
+                        <td>
+                            <?= Html::encode("$mat->country") ?>
+                        </td>
+                        <td>
+                            <?= Html::encode("$mat->jinqiu") ?>
+                                个
+                        </td>
+                    </tr>
+                    <?php endforeach;?>
+                </tbody>
+            </table>
     </div>
+   
+<div class="col-lg-5 col-md-5">
+
+          <table class="table table-striped" style="margin-top:0">
+              <?php PageHeadWidget::begin([
+            'text' => "射手榜",
+            'hasBorder' => true,
+        ]) ?>
+                <thead>
+                    <tr>
+                        <th>
+                            球员姓名
+                        </th>
+                        <th>
+                            所属国家
+                        </th>
+                        <th>
+                            助攻数
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+
+            foreach($zhugong as $mat): ?>
+
+                    <tr>
+                        <td>
+                            <?= Html::beginTag('a',['href'=> "./?r=player%2Fview&id=".$mat->ID])?>
+                                <?= Html::encode("$mat->name") ?>
+                        </td>
+                        <td>
+                            <?= Html::encode("$mat->country") ?>
+                        </td>
+                        <td>
+                            <?= Html::encode("$mat->zhugong") ?>
+                                个
+                        </td>
+                    </tr>
+                    <?php endforeach;?>
+                </tbody>
+            </table>
+</div>
+   
 
 </div>

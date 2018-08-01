@@ -59,14 +59,12 @@ $this->title=$model->title;
     <div class="passage-msg text-right" style="margin:40px 0;">
         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
         <p><?=Html::encode("$model->seen")?></p>
-        <?php //$like=passage::find()->select(['$mat->ID']);
-        $amount=favorite::find()->where(["passage_ID" => $model->ID])->count();?>
+
         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
         <p><?= Html::encode("$amount") ?></p>
-        <?php //$like=passage::find()->select(['$mat->ID']);
-        $amount=comment::find()->where(["passage_ID" => $model->ID])->count();?>
+        
         <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-        <p><?= Html::encode("$amount") ?></p>
+        <p><?= Html::encode("$amount1") ?></p>
     </div>
 
 </div>
@@ -120,8 +118,8 @@ $this->title=$model->title;
                 </span>
             </span>
         </div>
-        <?php $comment=comment::find()->where(["passage_ID" => $model->ID])->all();?>
-        <?php foreach ($comment as $mat):?>
+       
+        <?php foreach ($comment1 as $mat):?>
             <?php if($mat->parent != 0){
                 $parentmat = comment::find()->where(["ID"=> $mat->parent])->all();
                 foreach($parentmat as $newmat){
@@ -159,15 +157,20 @@ $this->title=$model->title;
         <hr>
 
         <div class="comment-create">
-            <?php $form = ActiveForm::begin(['action' => '?r=passage/create']); ?>
-            <?= $form->field($commentd, 'content')->textInput(['maxlength' => true]);?>
-            <?= $form->field($commentd, 'passage_ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false)?>
-            <?= $form->field($commentd, 'user_ID')->textInput()->hiddenInput(['value'=>'1'])->label(false)?>
-            <?= $form->field($commentd, 'username')->textInput()->hiddenInput(['value'=>'visitor'])->label(false)?>
-            <?= $form->field($commentd, 'date')->textInput()->hiddenInput(['value'=>'2018-8-7'])->label(false)?>
-            <?= $form->field($commentd, 'status')->textInput()->hiddenInput(['value'=>'normal'])->label(false)?>
-            <?= $form->field($commentd, 'parent')->textInput()->hiddenInput(['value'=>'0'])->label(false)?>
-            <?= $form->field($commentd, 'ID')->textInput()->hiddenInput(['ID'=>''])->label(false)?>
+         
+<?php date_default_timezone_set("Asia/Shanghai");
+
+
+           $form = ActiveForm::begin(['action' => '?r=passage/create']);
+            echo $form->field($commentd, 'content')->textInput(['maxlength' => true]);
+            // echo $form->field($commentd, 'passage_ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
+            // echo $form->field($commentd, 'user_ID')->textInput()->hiddenInput(['value'=>Yii::$app->user->identity->ID])->label(false);
+            // echo $form->field($commentd, 'username')->textInput()->hiddenInput(['value'=>Yii::$app->user->identity->username])->label(false);
+            // echo $form->field($commentd, 'date')->textInput()->hiddenInput(['value'=>date("Y-m-d h:i:sa")])->label(false);
+            // echo $form->field($commentd, 'status')->textInput()->hiddenInput(['value'=>'normal'])->label(false);
+            // echo $form->field($commentd, 'parent')->textInput()->hiddenInput(['value'=>'0'])->label(false);
+            // echo $form->field($commentd, 'ID')->textInput()->hiddenInput(['ID'=>''])->label(false);
+            ?>
         </div>
                 <div>
                     <?= Html::submitButton('save', ['class' => 'btn btn-primary'])?>
@@ -183,10 +186,10 @@ $this->title=$model->title;
 <!--                提交-->
 <!--            </button>-->
 <!--        </form>-->
-    </div>
-</div>
-
-<!--收藏按钮-->
 <a class="fav-icon" title="喜欢！收藏这篇文章">
     <span class="glyphicon glyphicon-heart"></span>
 </a>
+    </div>
+
+
+<!--收藏按钮-->

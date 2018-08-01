@@ -89,12 +89,17 @@ class SiteController extends Controller
         $model3=Match::find()->where(["stage" => "半决赛"])->all();
         $model4=Match::find()->where(["stage" => "3、4名决赛"])->all();
         $model5=Match::find()->where(["stage" => "1、2名决赛"])->all();
-        return $this->render('index',[
+
+        $sheshou=Player::find()->orderBy('jinqiu DESC')->all();
+        $zhugong=Player::find()->orderBy('zhugong DESC')->all();
+                return $this->render('index',[
             "model1"=>$model1,
             "model2"=>$model2,
             "model3"=>$model3,
             "model4"=>$model4,
             "model5"=>$model5,
+            'sheshou'=>$sheshou,
+            'zhugong'=>$zhugong,
 
         ]);
     }

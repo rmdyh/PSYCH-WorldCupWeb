@@ -206,7 +206,7 @@ AppAsset::register($this);
         </li>
         <li class="dropdown menu-merge">
           <a href="#" class="dropdown-toggle fw600 p15" data-toggle="dropdown">
-          	<img src="../statics/assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">
+          	<img src="../web/statics/assets/img/avatars/1.jpg" alt="avatar" class="mw30 br64">
       <?php if(!Yii::$app->user->isGuest){ ?>
 
           	<span class="hidden-xs pl15"> <?= Yii::$app->user->identity->username ?> </span>
@@ -258,7 +258,7 @@ AppAsset::register($this);
           <div class="sidebar-widget author-widget">
             <div class="media">
               <a class="media-left" href="#">
-                <img src="../statics/assets/img/avatars/3.jpg" class="img-responsive">
+                <img src="../web/statics/assets/img/avatars/3.jpg" class="img-responsive">
               </a>
               <div class="media-body">
                 <div class="media-links">

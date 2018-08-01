@@ -8,6 +8,9 @@ use frontend\models\PlayerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\models\Match;
+use frontend\models\PlayerMatch;
+
 
 /**
  * PlayerController implements the CRUD actions for Player model.
@@ -54,8 +57,15 @@ class PlayerController extends Controller
      */
     public function actionView($id)
     {
+         $playersmatch=PlayerMatch::find()->select(['match_ID'])->where(["player_ID"=>$id])->orderBy("match_ID");
+        $match=Match::find()->where(['ID'=>$playersmatch])->all();
+        $player=Player::find()->where(["ID" => $id])->all();
+        $playermatch1=PlayerMatch::find()->where(["player_ID"=>$id])->orderBy("match_ID")->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'player'=>$player,
+            'match'=>$match,
+            'playermatch1'=>$playermatch1,
         ]);
     }
 
