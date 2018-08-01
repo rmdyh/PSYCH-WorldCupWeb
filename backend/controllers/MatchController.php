@@ -101,7 +101,10 @@ class MatchController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        //$this->findModel($id)->delete();
+        $model=Match::find()->where(["ID"=>$id])->one();
+        $model->status="1";
+        $model->save();
 
         return $this->redirect(['index']);
     }

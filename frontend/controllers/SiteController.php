@@ -90,8 +90,10 @@ class SiteController extends Controller
         $model4=Match::find()->where(["stage" => "3、4名决赛"])->all();
         $model5=Match::find()->where(["stage" => "1、2名决赛"])->all();
 
-        $sheshou=Player::find()->orderBy('jinqiu DESC')->all();
-        $zhugong=Player::find()->orderBy('zhugong DESC')->all();
+        $sheshou=Player::find()->orderBy('jinqiu DESC')->limit(10)->offset(0)->all();
+        // var_dump($sheshou);
+        // return;
+        $zhugong=Player::find()->orderBy('zhugong DESC')->limit(10)->offset(0)->all();
                 return $this->render('index',[
             "model1"=>$model1,
             "model2"=>$model2,

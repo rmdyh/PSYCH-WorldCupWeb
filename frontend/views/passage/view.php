@@ -108,9 +108,21 @@ $this->title=$model->title;
 </div>
 
 </div>
-
+    
 <div class="row">
+     <div class="comment-create">
+         
+        <?php 
 
+            $form = ActiveForm::begin(['action' => '?r=passage/favorite']);
+            echo $form->field($favorite, 'passage_ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
+            ?>
+        </div>
+                <div>
+                   <?= Html::submitButton('', ['class' => 'glyphicon glyphicon-heart'])?>
+                </div>
+        <?php ActiveForm::end();?>
+        </div>
     <div class="commentspan col-md-8">
         <div class="page-head-div">
             <span class="page-head-wrap">
@@ -168,7 +180,7 @@ $this->title=$model->title;
             ?>
         </div>
                 <div>
-                    <?= Html::submitButton('save', ['class' => 'btn btn-primary'])?>
+                    <?= Html::submitButton('提交', ['class' => 'btn btn-primary'])?>
                 </div>
         <?php ActiveForm::end();?>
         </div>

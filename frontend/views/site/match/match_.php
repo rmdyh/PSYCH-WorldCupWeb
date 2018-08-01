@@ -54,7 +54,8 @@ $this->title = '淘汰赛';
                     <th>对阵情况</th>
                 </tr></thead>
                 <tbody> 
-                    <?php foreach($match_ as $mat): ?>
+                    <?php foreach($match_ as $mat):
+                    if ($mat->status=="0"): ?>
                         <tr>
                             <td>
                                 <?= Html::encode("$mat->time1") ?> 
@@ -70,7 +71,8 @@ $this->title = '淘汰赛';
                                 <?= Html::encode("$mat->sec_country") ?>  
                             </td>
                         </tr>
-                    <?php endforeach; ?>  
+                    <?php endif;
+                    endforeach; ?>  
                 </tbody>
             </table>
         </div>
