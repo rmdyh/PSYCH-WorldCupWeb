@@ -158,18 +158,12 @@ $this->title=$model->title;
 
         <div class="comment-create">
          
-<?php date_default_timezone_set("Asia/Shanghai");
+        <?php 
 
-
-           $form = ActiveForm::begin(['action' => '?r=passage/create']);
+            $form = ActiveForm::begin(['action' => '?r=passage/create']);
             echo $form->field($commentd, 'content')->textInput(['maxlength' => true]);
-            // echo $form->field($commentd, 'passage_ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
-            // echo $form->field($commentd, 'user_ID')->textInput()->hiddenInput(['value'=>Yii::$app->user->identity->ID])->label(false);
-            // echo $form->field($commentd, 'username')->textInput()->hiddenInput(['value'=>Yii::$app->user->identity->username])->label(false);
-            // echo $form->field($commentd, 'date')->textInput()->hiddenInput(['value'=>date("Y-m-d h:i:sa")])->label(false);
-            // echo $form->field($commentd, 'status')->textInput()->hiddenInput(['value'=>'normal'])->label(false);
-            // echo $form->field($commentd, 'parent')->textInput()->hiddenInput(['value'=>'0'])->label(false);
-            // echo $form->field($commentd, 'ID')->textInput()->hiddenInput(['ID'=>''])->label(false);
+            echo $form->field($commentd, 'passage_ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
+            echo $form->field($commentd, 'parent')->textInput()->hiddenInput(['value'=>'0'])->label(false);
             ?>
         </div>
                 <div>

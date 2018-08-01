@@ -85,25 +85,30 @@ class PassageController extends Controller
 //        $model->username='1';
 //        $model->status='normal';
 //        $model->save();
-       if (Yii::$app->user->isGuest) {
-    Yii::$app->user->setReturnUrl(Yii::$app->request->getUrl());  // 设置返回的url,登录后原路返回
-    Yii::$app->user->loginRequired();
-    Yii::$app->end();
-      
-}
-else{
-    date_default_timezone_set("Asia/Shanghai");
-    if($model->load(Yii::$app->request->post())&&$model->load('$user_ID'=>Yii::$app->user->identity->ID,'username'=>Yii::$app->user->identity->username,'date'=>date("Y-m-d h:i:sa"),'status'=>'normal')&&$model->save())
-        // if ($model->load(Yii::$app->request->post()) && $model->save()) 
-        {
-            return $this->redirect(['view','id' => $model->passage_ID]);
-        } else {
-           // return $this->redirect(['view','id' => 2]);
-           return $this->render('create', [
-               'model' => $model,
-           ]);
+        if (Yii::$app->user->isGuest) {
+            Yii::$app->user->setReturnUrl(Yii::$app->request->getUrl());  // 设置返回的url,登录后原路返回
+            Yii::$app->user->loginRequired();
+            Yii::$app->end();
         }
-    }
+        else{
+            date_default_timezone_set("Asia/Shanghai");
+            if($model->load(Yii::$app->request->post())) 
+            {
+                $model->user_ID = Yii::$app->user->identity->ID;
+                $model->date = date("Y-m-d h:i:sa");
+                $model->username= Yii::$app->user->identity->username;
+                $model->status = "normal";
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->passage_ID]);
+                }else{
+                    var_dump("Something Wrong!");
+                    return;
+                }
+            } else {
+                // return $this->redirect(['view','id' => 2]);
+                //return $this->render(Yii::$app->request->hostInfo);
+            }
+        }
     }
 
     /**
