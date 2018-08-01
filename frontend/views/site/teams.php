@@ -25,7 +25,9 @@ $this->title = '球队一览-PSYCH-WorldCup';
 
                 <div>
                     <?php $match=Team::find()->where(["f_group" => $group])->all();
-                    foreach($match as $mat): ?>
+                    foreach($match as $mat):
+                        if($mat->status=="1"):
+                     ?>
                         <div class="col-xs-3">
                             <?= Html::beginTag('a',['class'=> "wrap-team-icon" ,'href'=> "./?r=team%2Fview&id=".$mat->country])?>
                             <div class="wc-team-icon">
@@ -36,7 +38,9 @@ $this->title = '球队一览-PSYCH-WorldCup';
                             </div>
                             </a>
                         </div>
-                    <?php endforeach;?>
+                    <?php 
+                    endif;
+                    endforeach;?>
                 </div>
             </div>
         <?php endforeach;?>

@@ -51,7 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
 
         <?php 
-         foreach($player as $mat): ?>
+         foreach($player as $mat):
+         if($mat->status=="0"): ?>
     
 
         <div class="col-xs-6 col-md-3">
@@ -66,7 +67,8 @@ $this->params['breadcrumbs'][] = $this->title;
         </a>
             </div>
      
-        <?php endforeach;?>
+        <?php endif;
+        endforeach;?>
     </div>
     <?php endforeach;?>
 
