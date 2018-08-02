@@ -58,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
         {echo "
             <div class=\"text-right\">
                 <p style=\"display: inline-block\">文章操作：</p>
+                <button type=\"button\" class=\"btn btn-primary\" onclick=\"\">修改</button>
                 <button type=\"button\" class=\"btn btn-success\" onclick=\"\">删除</button>
             </div>
         ";}

@@ -146,7 +146,7 @@ $this->title=$model->title;
                     <span class="media-heading" style="display:inline-block; margin-right:10px" ><?= Html::encode("$mat->username") ?></span>
                     <span class="time" style="display:inline-block"><?= Html::encode("$mat->date") ?></span>
                     <div style="margin-bottom: 4px;"><?= Html::encode("$mat->content") ?></div>
-                    <a href="#comments" onclick="reply(1)">回复</a>
+                    <a href="#comments" onclick="reply(<?= $mat->ID?>)">回复</a>
                 </div>
             </div>
             <hr>

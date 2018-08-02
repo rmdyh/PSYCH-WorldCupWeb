@@ -8,6 +8,7 @@ use backend\models\PassageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\Pagination;
 
 /**
  * PassageController implements the CRUD actions for Passage model.
@@ -35,12 +36,20 @@ class PassageController extends Controller
      */
     public function actionIndex()
     {
+        $query = passage::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
         $searchModel = new PassageSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'pagination' => $pagination,
         ]);
     }
 
@@ -82,6 +91,7 @@ class PassageController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -101,11 +111,34 @@ class PassageController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $target = passage::findone($id);
+        $target->status = 'deleted';
+        //$this->findModel($id)->delete();
+        $target->save();
         return $this->redirect(['index']);
     }
 
+    public function actionAbort($id){
+        $target = $this->findModel($id);
+        $target->status = 'aborted';
+        //$this->findModel($id)->delete();
+        $target->save();
+        return $this->redirect(['index']);
+    }
+
+    public function actionEdit($id){
+        $model = $this->findModel($id);
+        return $this->render('edit', [
+            'model'=>$model,
+            ]);
+    }
+
+    public function actionEditpost($id){
+        $target = $this->findModel($id);
+        $target->load(yii::$app->request->post());
+        $target->save();
+        return $this->redirect(['index']);
+    }
     /**
      * Finds the Passage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
