@@ -165,7 +165,7 @@ $this->title = 'PSYCH-WorldCup';
 
           <table class="table table-striped" style="margin-top:0">
               <?php PageHeadWidget::begin([
-            'text' => "射手榜",
+            'text' => "助攻榜",
             'hasBorder' => true,
         ]) ?>
                 <thead>
