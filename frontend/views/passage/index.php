@@ -82,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <h2><?=Html::encode("$mat->title")?></h2>
                                         <h6><?=Html::encode("$mat->date")?></h6>
                                         <?php $string=$mat->content;?>
-                                        <p><?php echo substr($string, 1,14);?> </p>
+                                        <p><?php echo mb_substr($string, 0,100);?> ......</p>
                                         <a class="btn_2" href=<?php echo URL::to('./?r=passage%2Fview&id='.$mat->ID)?>>Read More</a>
 
                                     </div>
