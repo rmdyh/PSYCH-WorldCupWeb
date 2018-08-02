@@ -6,22 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title></title>
-    <!-- Bootstrap core CSS -->
-    <link href="css_new/bootstrap.css" rel="stylesheet">
-    <!-- DL Menu CSS -->
-    <link href="js/dl-menu/component.css" rel="stylesheet">
-    <!-- Slick Slider CSS -->
-    <link href="css_new/slick.css" rel="stylesheet">
-    <link href="css/slick-theme.css" rel="stylesheet">
-    <!-- ICONS CSS -->
-    <link href="css_new/font-awesome.css" rel="stylesheet">
-    <link href="css/svg-icons.css" rel="stylesheet">
-    <!-- Pretty Photo CSS -->
-    <link href="css_new/prettyPhoto.css" rel="stylesheet">
     <!-- Typography CSS -->
     <link href="css_new/typography.css" rel="stylesheet">
-    <!-- Widget CSS -->
-    <link href="css_new/widget.css" rel="stylesheet">
     <!-- Shortcodes CSS -->
     <link href="css_new/shortcodes.css" rel="stylesheet">
     <!-- Custom Main StyleSheet CSS -->

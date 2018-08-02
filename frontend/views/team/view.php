@@ -15,8 +15,6 @@ use frontend\components\PageHeadWidget;
 /* @var $model frontend\models\Team */
 
 $this->title = $model->country;
-$this->params['breadcrumbs'][] = ['label' => 'Teams', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 ?>
     <div class="team-view">
         <?php PageHeadWidget::begin([
@@ -31,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="col-md-4 team-flag">
                     <img src=<?php echo URL::to( 'static/country/'.$model->country.'.png')?> alt>
                 </div>
-                <div class="col-md-4 team-info">
+                <div class="col-md-4 team-info col-xs-6">
                     <div class="text">
                         <span class="counter">
                             <?=$model->coach?>
@@ -49,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <span class="tag">加入世界杯时间</span>
                     </div>
                 </div>
-                <div class="col-md-4 team-info">
+                <div class="col-md-4 team-info col-xs-6">
                     <div class="text">
                         <span class="counter">
                             <?=$model->attendedtime?>次</span>
