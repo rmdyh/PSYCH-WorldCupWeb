@@ -44,7 +44,7 @@ class PassageController extends Controller
         // return $this->render('index', [
         //     'passage' => $passage,
         // ]);
-        $query =Passage::find();
+        $query =Passage::find()->where(['status'=>'success']);
         $count= $query->count();
         $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>5]);
         $passage=$query->offset($pagination->offset)

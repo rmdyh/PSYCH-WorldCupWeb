@@ -133,7 +133,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </tr>
         </thead>
         <tbody>
-        <?php $res = passage::find()->where(['status'=>'aborted'])->all();
+        <?php $res = passage::find()->where(['status'=>'abort'])->all();
         foreach($res as $cols):?>
             <tr>
                 <td>

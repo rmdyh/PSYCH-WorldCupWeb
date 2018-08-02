@@ -8,6 +8,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\Pagination;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -36,12 +37,17 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+        $query = user::find()->where(['status'=>10]);
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $pagination = new Pagination([
+           'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'pagination' => $pagination,
         ]);
     }
 
@@ -95,6 +101,9 @@ class UserController extends Controller
     }
 
     /**
+     * edited by wzz 1610652 18-8-1.
+     * rewrited whple function.
+     *
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
@@ -102,7 +111,13 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $target = $this->findModel($id);
+        //var_dump(Yii::$app->request->post());
+        //$target = user::findone($id);
+        //var_dump($target);
+        $target->status = 0; // 13 is think to be deleted condition.
+        $target->save();
+        //$this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
