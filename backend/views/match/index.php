@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'time1',
             // 'time2',
             // 'time3',
-            // 'place',
-            // 'stage',
-             'status',
+             'place',
+            'stage',
+            'status',
             // 'url:url',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\models\Favorite;
+use frontend\models\PassageKey;
 
 /**
  * PassageController implements the CRUD actions for Passage model.
@@ -39,9 +40,13 @@ class PassageController extends Controller
     public function actionIndex()
     {
 
-        $passage = Passage::find()->all();
-        return $this->render('index', [
-            'passage' => $passage,
+        // $passage = Passage::find()->all();
+        // return $this->render('index', [
+        //     'passage' => $passage,
+        // ]);
+         $passage=Passage::find()->all();
+        return $this->render('index',[
+            'passage'=>$passage,
         ]);
     }
 
@@ -54,10 +59,24 @@ class PassageController extends Controller
     {
         $post=Passage::findOne($id);
         $post->updateCounters(['seen'=>1]);
-       $amount=favorite::find()->where(["passage_ID" => $id])->count();
-       $amount1=comment::find()->where(["passage_ID" => $id])->count();
-       $comment1=comment::find()->where(["passage_ID" => $id])->all();
+        $amount=favorite::find()->where(["passage_ID" => $id])->count();
+        $amount1=comment::find()->where(["passage_ID" => $id])->count();
+        $comment1=comment::find()->where(["passage_ID" => $id])->all();
         $commentd = new Comment();
+        $favorite=new Favorite();
+
+        //找到所有关键字并获得相关文章，放在relationPost中
+        $keysRecord = $post->passageKeys;
+        $keys=array();
+        foreach ($keysRecord as $key ) {
+            $keys []=$key->keyword;
+        }
+        $relation = PassageKey::find()->select('passage_ID')->where(['keyword'=>$keys])->distinct()->all();
+        $relationid=array();
+        foreach ($relation as $relationp) {
+            $relationid[]=$relationp->passage_ID;
+        }
+        $relationPost=Passage::findAll($relationid);
 
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -65,6 +84,8 @@ class PassageController extends Controller
             'amount'=>$amount,
             'amount1'=>$amount1,
             'comment1'=>$comment1,
+            'favorite'=>$favorite,
+            'relationP'=>$relationPost,
         ]);
     }
 
@@ -85,7 +106,8 @@ class PassageController extends Controller
 //        $model->username='1';
 //        $model->status='normal';
 //        $model->save();
-        if (Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) 
+            {
             Yii::$app->user->setReturnUrl(Yii::$app->request->getUrl());  // 设置返回的url,登录后原路返回
             Yii::$app->user->loginRequired();
             Yii::$app->end();
@@ -105,6 +127,43 @@ class PassageController extends Controller
                     return;
                 }
             } else {
+                // return $this->redirect(['view','id' => 2]);
+                //return $this->render(Yii::$app->request->hostInfo);
+            }
+        }
+    }
+    public function actionFavorite()
+    {
+        $model = new Favorite();
+        if (Yii::$app->user->isGuest) 
+            {
+            Yii::$app->user->setReturnUrl(Yii::$app->request->getUrl());  // 设置返回的url,登录后原路返回
+            Yii::$app->user->loginRequired();
+            Yii::$app->end();
+        }
+        else{
+            if($model->load(Yii::$app->request->get())) 
+            {
+                $model->user_ID = Yii::$app->user->identity->ID;
+                $model->username= Yii::$app->user->identity->username;
+                $exist= Favorite::findOne(['user_ID' => $model->user_ID, 'passage_ID' => $model->passage_ID]);
+                if(sizeof($exist)==0)
+                {
+                    if($model->save()){
+                        return $this->redirect(['view', 'id' => $model->passage_ID]);
+                    }else{
+                        var_dump("Something Wrong!");
+                        return;
+                    }
+                }
+                else{
+                    $exist->delete();
+                    return $this->redirect(['view', 'id' => $model->passage_ID]);
+                }
+            }
+             else {
+                  var_dump("Wrong!");
+                    return;
                 // return $this->redirect(['view','id' => 2]);
                 //return $this->render(Yii::$app->request->hostInfo);
             }

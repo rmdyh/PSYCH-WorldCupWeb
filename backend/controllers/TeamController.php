@@ -101,8 +101,12 @@ class TeamController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+       // $this->findModel($id)->delete();
 
+        
+        $model=Team::find()->where(["country"=>$id])->one();
+        $model->status="0";
+        $model->save();
         return $this->redirect(['index']);
     }
 

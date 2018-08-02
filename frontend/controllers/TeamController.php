@@ -37,13 +37,16 @@ class TeamController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new TeamSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $searchModel = new TeamSearch();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+
+        // return $this->render('index', [
+        //     'searchModel' => $searchModel,
+        //     'dataProvider' => $dataProvider,
+          return $this->render('index');
+
+        //]);
     }
 
     /**

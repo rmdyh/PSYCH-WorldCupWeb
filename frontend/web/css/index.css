@@ -69,18 +69,20 @@ body{
     width: 320px;
 }
 
-.thumbnail-news .caption{
+.thumbnail .caption{
     overflow: hidden;
     margin-left: 320px;
     height: 100%;
     padding-left: 3%;
 }
 
-.thumbnail-news .caption h3{
+.thumbnail-news .caption h3,
+.thumbnail .caption p {
     margin: 3px 0 0;
     text-overflow: ellipsis;
     overflow: hidden;
     pointer-events: none;
+    white-space: nowrap;
 }
 .thumbnail-news .caption .caption-title{
     white-space: nowrap;
@@ -433,9 +435,27 @@ body{
     text-align: center;
 }
 
+.passage-msg{
+    margin-top: 20px;
+}
+.passage-msg div{
+    white-space: nowrap;
+}
+
+.comment-tip{
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
+.comment-tip-show{
+    display: block;
+}
+
 /* 小屏幕（平板，大于等于 768px） */
 @media (max-width: 768px) {
-    .thumbnail-news .caption {
+    .thumbnail .caption {
         margin-left: 0;
         padding-left: 9px;
     }

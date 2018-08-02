@@ -68,7 +68,7 @@ class Match extends \yii\db\ActiveRecord
             'time3' => 'Time3',
             'place' => '比赛地点',
             'stage' => '比赛类型',
-            'status' => '比赛状态（0未开始；1已结束;2已删除）',
+            'status' => '比赛状态（0已结束；1已删除）',
             'url' => '战报的文章ID',
         ];
     }

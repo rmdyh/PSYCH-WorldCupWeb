@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use frontend\models\Passage;
 
 /**
  * This is the model class for table "passage_key".
@@ -53,6 +54,6 @@ class PassageKey extends \yii\db\ActiveRecord
      */
     public function getPassage()
     {
-        return $this->hasOne(Passage::className(), ['ID' => 'passage_ID']);
+        return $this->hasMany(Passage::className(), ['ID' => 'passage_ID']);
     }
 }

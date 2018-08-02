@@ -98,7 +98,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tbody>
                     <?php $player=Player::find()->where(["country" => $model->country])->all();
 
-            foreach($player as $mat): ?>
+            foreach($player as $mat): 
+                if ($mat->status=="0"):?>
 
                     <tr>
                         <td>
@@ -121,7 +122,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                 分钟
                         </td>
                     </tr>
-                    <?php endforeach;?>
+                    <?php endif;
+                    endforeach;?>
                 </tbody>
             </table>
         </div>
@@ -148,7 +150,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         </thead>
                         <tbody>
                             <?php  $match=Match::find()->where(['or',['country'=>$model->country],['sec_country'=>$model->country]])->all();
-                        foreach($match as $mat): ?>
+                        foreach($match as $mat): 
+                            if($mat->status=="0"):?>
                             <tr>
                                 <td>
                                     <?= Html::encode("$mat->stage") ?>
@@ -161,7 +164,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?= Html::encode("$mat->sec_country") ?>
                                 </td>
                             </tr>
-                            <?php endforeach;?>
+                            <?php endif;
+                            endforeach;?>
                         </tbody>
                     </table>
                 </div>
