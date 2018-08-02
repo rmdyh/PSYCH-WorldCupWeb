@@ -81,4 +81,9 @@ class Passage extends \yii\db\ActiveRecord
     {
         return $this->hasMany(PassageKey::className(), ['passage_ID' => 'ID']);
     }
+
+    public function getComments()
+    {
+        return $this->hasMany(Comment::className(),['passage_ID'=>'ID']);
+    }
 }
