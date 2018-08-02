@@ -79,10 +79,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <div class="text_wrper">
                                     <div class="text">
                                         <h6>FIFA worldcup 2018</h6>                              
-                                        <h2><?=Html::encode("$mat->title")?></h2>
+                                        <h2 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 160%;"><?=Html::encode("$mat->title")?></h2>
                                         <h6><?=Html::encode("$mat->date")?></h6>
                                         <?php $string=$mat->content;?>
-                                        <p><?php echo mb_substr($string, 0,100);?> ......</p>
+                                        <p style="height: 3.5em;overflow: hidden;"><?php echo mb_substr($string, 0,100);?></p>
                                         <a class="btn_2" href=<?php echo URL::to('./?r=passage%2Fview&id='.$mat->ID)?>>Read More</a>
 
                                     </div>
