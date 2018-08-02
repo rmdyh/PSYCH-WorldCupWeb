@@ -13,6 +13,7 @@ use frontend\models\Comment;
 use frontend\models\PassageKey;
 use yii\widgets\ActiveForm;
 use frontend\components\PageHeadWidget;
+use frontend\components\NewsBarWidget;
 $this->title=$model->title;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Passage */
@@ -204,15 +205,6 @@ $this->title=$model->title;
         <!--            </button>-->
         <!--        </form>-->
         </div>
-<?php NewsBarWidget::widget([
-    'title'=>$pas->title,
-    'brief'=>$pas->content,
-    'imgUrl'=> URL::to('extra-images/feature_' . $pas->ID . '.jpg'),
-    'author'=>$pas->author_ID,
-    'seen'=>$pas->seen,
-    'like'=>sizeof($pas->favorites),
-    'comment'=>sizeof($pas->comments)
-]) ?>
 
     </div>
     <?= Html::beginTag('a',['class'=>"fav-icon",'title'=> "喜欢！收藏这篇文章",'href'=> "?r=passage/favorite&Favorite[passage_ID]=" .$model->ID])?>
