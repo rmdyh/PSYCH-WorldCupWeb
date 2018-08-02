@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class PassageController extends Controller
 {
+    public $layout = "index";
     /**
      * @inheritdoc
      */

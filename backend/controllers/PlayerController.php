@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class PlayerController extends Controller
 {
+    public $layout = "index";
     /**
      * @inheritdoc
      */

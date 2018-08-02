@@ -6,6 +6,7 @@
     use frontend\models\Favorite;
     use frontend\models\Passage;
     use frontend\models\Comment;
+    use yii\widgets\LinkPager;
 
     $this->title = '热门文章';
 ?>
@@ -18,5 +19,10 @@
         'author'=>$pas->author,
         'seen'=>$pas->seen,
         'like'=>sizeof($pas->favorites),
-        'comment'=>sizeof($pas->comments)])?>
+        'comment'=>sizeof($pas->comments),
+        'url'=> URL::to('./?r=passage%2Fview&id=' . $pas->ID)
+    ])?>
 <?php endforeach ?>
+<?= LinkPager::widget([
+    'pagination' => $pagination,
+])?>
