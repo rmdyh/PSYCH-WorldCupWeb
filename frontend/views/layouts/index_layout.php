@@ -72,10 +72,10 @@ AppAsset::register($this);
                 <?php
                     $navUrls=[
                         ['label'=>'主页','url'=>'./?r=site%2Findex'],
-                        ['label'=>'赛程','url'=>'./?r=site%2Fmatch'],
-                        ['label'=>'球队一览','url'=>'./?r=site%2Fteams'],
-                        ['label'=>'球员一览','url'=>'./?r=site%2Fplayers'],
-                        ['label'=>'热门文章','url'=>'./?r=site%2Fnews'],
+                        ['label'=>'赛程','url'=>'./?r=match'],
+                        ['label'=>'球队一览','url'=>'./?r=team'],
+                        ['label'=>'球员一览','url'=>'./?r=player'],
+                        ['label'=>'热门文章','url'=>'./?r=passage'],
                     ];
                     $nowUrl=Yii::$app->request->url;
                     for ($i=0;$i<count($navUrls);$i++) {
