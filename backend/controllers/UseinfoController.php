@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class UseinfoController extends Controller
 {
+    public $layout = "index";
     /**
      * @inheritdoc
      */

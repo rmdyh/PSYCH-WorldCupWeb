@@ -100,7 +100,7 @@ $this->title=$model->title;
                 <div class="thumbnail thumbnail-relpassage">
                     <img class="hidden-xs" src=<?php echo URL::to( 'extra-images/feature_' . $relation->ID . '.jpg') ?> >
                     <div class="caption">
-                        <p>
+                        <p class="title">
                             <?= $relation->title?>
                         </p>
                         <div class="passage-msg row">

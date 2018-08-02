@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class MatchController extends Controller
 {
+    public $layout = "index";
     /**
      * @inheritdoc
      */

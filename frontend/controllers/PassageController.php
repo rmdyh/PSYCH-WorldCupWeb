@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\models\Favorite;
 use frontend\models\PassageKey;
+use yii\data\Pagination;
 
 /**
  * PassageController implements the CRUD actions for Passage model.
@@ -39,14 +40,19 @@ class PassageController extends Controller
      */
     public function actionIndex()
     {
-
         // $passage = Passage::find()->all();
         // return $this->render('index', [
         //     'passage' => $passage,
         // ]);
-         $passage=Passage::find()->where(['status'=>'success'])->all();
-        return $this->render('index',[
+        $query =Passage::find()->where(['status'=>'success']);
+        $count= $query->count();
+        $pagination = new Pagination(['totalCount' => $count, 'pageSize'=>5]);
+        $passage=$query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+        return $this->render('passage',[
             'passage'=>$passage,
+            'pagination' => $pagination,
         ]);
     }
 

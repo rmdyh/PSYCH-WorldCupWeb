@@ -29,8 +29,8 @@ class NewsBarWidget extends Widget
             'url' => $this->url,
             "author"=>$this->author,
             "seen"=>$this->seen,
-             "like"=>$this->like,
-             "comment"=>$this->comment,
+            "like"=>$this->like,
+            "comment"=>$this->comment,
         ]);
     }
 }
