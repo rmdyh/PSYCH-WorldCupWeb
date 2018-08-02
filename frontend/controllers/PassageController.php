@@ -44,7 +44,7 @@ class PassageController extends Controller
         // return $this->render('index', [
         //     'passage' => $passage,
         // ]);
-         $passage=Passage::find()->all();
+         $passage=Passage::find()->where(['status'=>'success'])->all();
         return $this->render('index',[
             'passage'=>$passage,
         ]);

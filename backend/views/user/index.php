@@ -1,3 +1,4 @@
+
 <?php
 
 use yii\helpers\Html;
@@ -12,15 +13,15 @@ $this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
+        <script>
+            function deluser(id){
+                alert("you clicked here");
+                $.post("./?r=user/delete&id="+id, {'id' : id}, function(data){
+                    alert('success deleted!');
+                });
+            }
+        </script>
 
-    <script>
-        function deluser(id){
-            alert("you clicked here");
-            $.post("./?r=user/delete&id="+id, {}, function(data){
-                alert('success deleted!');
-            })
-        }
-    </script>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -49,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 
 <div class="admin-userspan" id="admin-userspan" style="padding:100px 40px; background: white">
+
     <p class="text-center">
         User Admin
     </p>

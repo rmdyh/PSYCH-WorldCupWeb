@@ -139,6 +139,14 @@ class PassageController extends Controller
         $target->save();
         return $this->redirect(['index']);
     }
+
+    public function actionCensor($res, $id){
+        $target = $this->findModel($id);
+        $target->status = ($res == 1)? 'success':'abort';
+        if($res == 2) $target->status='delete';
+        $target->save();
+        return $this->redirect(['index']);
+    }
     /**
      * Finds the Passage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
