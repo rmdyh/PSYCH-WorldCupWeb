@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
  */
 class TeamController extends Controller
 {
-    public $layout = "index";
+    public $layout = "main_layout";
     /**
      * @inheritdoc
      */

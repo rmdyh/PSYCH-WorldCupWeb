@@ -46,8 +46,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'jing_score')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
-
     <?= $form->field($model, 'year')->textInput() ?>
 
     <div class="form-group">

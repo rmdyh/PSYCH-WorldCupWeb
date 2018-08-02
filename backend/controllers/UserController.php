@@ -15,7 +15,7 @@ use yii\data\Pagination;
  */
 class UserController extends Controller
 {
-    public $layout = "index";
+    public $layout = "main_layout";
     /**
      * @inheritdoc
      */

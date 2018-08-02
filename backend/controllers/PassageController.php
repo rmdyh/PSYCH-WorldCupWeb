@@ -15,7 +15,7 @@ use yii\data\Pagination;
  */
 class PassageController extends Controller
 {
-    public $layout = "index";
+    public $layout = "main_layout";
     /**
      * @inheritdoc
      */
