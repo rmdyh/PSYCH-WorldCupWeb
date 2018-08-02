@@ -62,20 +62,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <!--Featured 3 Slider Start-->
                 <div class="kf_featured_wrap3">
                     <div class="row">
-
-
                         <?php foreach($passage as $mat):?>
                         <div class="col-md-6 col-sm-6">
                             <!--Featured 3 thumb Start-->
                             <div class="kf_featured_thumb">
                                 <figure>
-                                    
                                      <img src=<?php echo URL::to('extra-images/feature_'.$mat->ID.'.jpg')?> alt="">
-
                                 </figure>
-
-                              
-
                                 <div class="text_wrper">
                                     <div class="text">
                                         <h6>FIFA worldcup 2018</h6>                              
