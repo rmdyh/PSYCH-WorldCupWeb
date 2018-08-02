@@ -41,12 +41,28 @@ class PlayerController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PlayerSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $searchModel = new PlayerSearch();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        // return $this->render('index', [
+        //     'searchModel' => $searchModel,
+        //     'dataProvider' => $dataProvider,
+        // ]);
+         $searchModel = new PlayerSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
+        $players=array();
+        foreach ($dataProvider->getModels() as $player) {
+            if(!isset($players[$player->country])){
+                $players[$player->country]=array();
+            }
+            array_push($players[$player->country],$player);
+        }
+
+        return $this->render('index',[
+            'players'=>$players,
+            'model' => $searchModel,
+            'data'=>$dataProvider->getModels(),
         ]);
     }
 

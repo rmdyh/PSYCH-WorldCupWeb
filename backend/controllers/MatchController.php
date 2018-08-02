@@ -106,6 +106,7 @@ class MatchController extends Controller
         $model->status="1";
         $model->save();
 
+
         return $this->redirect(['index']);
     }
 

@@ -287,13 +287,6 @@ class SiteController extends Controller
         }
     }
 
-    public function actionTeams()
-    {
-       
-        return $this->render('teams');
-
-       
-    }
     public function actionTeaminfo()
     {
          $teaminfo= Team::find()->where(["country" => "俄罗斯"])->all();
