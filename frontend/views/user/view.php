@@ -92,9 +92,9 @@ $this->title = '用户界面';
             <?php foreach($posts as $post):?>
                 <tr>
 
-                    <td><?= $favor->title?></td>
-                    <td><?= $favor->date?></td>
-                    <td><?= $favor->status?></td>
+                    <td><?= $post->title?></td>
+                    <td><?= $post->date?></td>
+                    <td><?= $post->status?></td>
 
                 </tr>
             <?php endforeach;?>
