@@ -14,9 +14,9 @@
             </div>
             <hr>
             <div class="text-overflow">
-                <p>
+                <div class="text-content">
                     <?= $brief ?>
-                </p>
+                </div>
             </div>
             <hr style="margin:5px 0">
             <div class="end-bar row">

@@ -100,7 +100,7 @@ body{
     font-weight: bold;
     line-height: 240%;
 }
-.text-overflow p {
+.text-overflow .text-content {
     margin: 0 0 10px;
     max-height: 2.8em;
     display: block;

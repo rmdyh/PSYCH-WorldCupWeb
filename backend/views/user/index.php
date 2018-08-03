@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-<div class="admin-userspan" id="admin-userspan" style="padding:100px 40px; background: white">
+<div class="admin-userspan" id="admin-userspan" style="padding:10px 40px; ">
 
     <p class="text-center">
         User Admin
