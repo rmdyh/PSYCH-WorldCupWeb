@@ -19,12 +19,12 @@ use yii\widgets\ActiveForm;
         <p> author: <?= $model->author?> posttime: <?= $model->date?></p>
     </div>
     <?php $form = ActiveForm::begin(['action' => '?r=passage/editpost&id='.$model->ID]);
-        //echo "<li></li>";
-        echo $form->field($model, 'title')->textInput();// textarea;
-        echo $form->field($model, 'ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
-        echo $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className());
-        echo Html::submitButton('save', ['class'=>'btn btn-primary']);
-        ActiveForm::end();
+    //echo "<li></li>";
+    echo $form->field($model, 'title')->textInput();// textarea;
+    echo $form->field($model, 'ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
+    echo $form->field($model, 'content')->widget(\yii\redactor\widgets\Redactor::className());
+    echo Html::submitButton('save', ['class'=>'btn btn-primary']);
+    ActiveForm::end();
     ?>
 
 </div>

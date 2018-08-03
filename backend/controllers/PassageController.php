@@ -15,6 +15,7 @@ use yii\data\Pagination;
  */
 class PassageController extends Controller
 {
+    public $layout = "main_layout";
     /**
      * @inheritdoc
      */
@@ -136,6 +137,14 @@ class PassageController extends Controller
     public function actionEditpost($id){
         $target = $this->findModel($id);
         $target->load(yii::$app->request->post());
+        $target->save();
+        return $this->redirect(['index']);
+    }
+
+    public function actionCensor($res, $id){
+        $target = $this->findModel($id);
+        $target->status = ($res == 1)? 'success':'abort';
+        if($res == 2) $target->status='delete';
         $target->save();
         return $this->redirect(['index']);
     }

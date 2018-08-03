@@ -12,15 +12,15 @@ use yii\helpers\Html;
 
 $this->title = 'PSYCH-WorldCup';
 ?>
-<div class="site-index">    
-    <?= PageHeadWidget::widget([
+    <div class="site-index">
+        <?= PageHeadWidget::widget([
         'text'=>"淘汰赛赛程"
     ])?>
 
-    <div class="knockout-match">
-        <img class="bg" src="../web/static/against_bg.png"/>
-            <ul>
-                <?php   $i=1;
+            <div class="knockout-match">
+                <img class="bg" src="../web/static/against_bg.png" />
+                <ul>
+                    <?php   $i=1;
                     foreach($model1 as $mat1):?>
                     <?php 
                         echo KnockoutCellWidget::widget([
@@ -40,9 +40,9 @@ $this->title = 'PSYCH-WorldCup';
                         $i+=1;            
                             }  
                     ?>
-                <?php endforeach;?>
+                    <?php endforeach;?>
 
-                <?php   $i=5;
+                    <?php   $i=5;
                     foreach($model2 as $mat2):?>
                     <?php echo KnockoutCellWidget::widget([
                         'id' => Html::encode("$mat2->ID"),
@@ -61,9 +61,9 @@ $this->title = 'PSYCH-WorldCup';
                      $i+=1;            
                         }  
                     ?>
-                <?php endforeach;?>
+                    <?php endforeach;?>
 
-                <?php   $i=7;
+                    <?php   $i=7;
                     foreach($model3 as $mat3):?>
                     <?php echo KnockoutCellWidget::widget([
                         'id' => Html::encode("$mat3->ID"),
@@ -82,9 +82,9 @@ $this->title = 'PSYCH-WorldCup';
                      $i+=1;            
                         }  
                     ?>
-                <?php endforeach;?>
+                    <?php endforeach;?>
 
-                <?php  $i=9;
+                    <?php  $i=9;
                     foreach($model4 as $mat4):?>
                     <?php echo KnockoutCellWidget::widget([
                         'id' => Html::encode("$mat4->ID"),
@@ -97,9 +97,9 @@ $this->title = 'PSYCH-WorldCup';
                         'url'=>"#",
                     ]);
                     ?>
-                <?php endforeach;?>
+                    <?php endforeach;?>
 
-                <?php  $i=8;
+                    <?php  $i=8;
                     foreach($model5 as $mat5):?>
                     <?php echo KnockoutCellWidget::widget([
                         'id' => Html::encode("$mat5->ID"),
@@ -112,97 +112,93 @@ $this->title = 'PSYCH-WorldCup';
                         'url'=>"#",
                     ]);
                     ?>
-                <?php endforeach;?>
-        </ul> 
-    </div>
-
- 
-   
-    <div class="col-lg-5 col-md-5">
-           
-            <table class="table table-striped" style="margin-top:0">
-                 <?php PageHeadWidget::begin([
-            'text' => "射手榜",
-            'hasBorder' => true,
-        ]) ?>
-                <thead>
-                    <tr>
-                        <th>
-                            球员姓名
-                        </th>
-                        <th>
-                            所属国家
-                        </th>
-                        <th>
-                            进球数
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
-
-            foreach($sheshou as $mat): ?>
-
-                    <tr>
-                        <td>
-                            <?= Html::beginTag('a',['href'=> "./?r=player%2Fview&id=".$mat->ID])?>
-                                <?= Html::encode("$mat->name") ?>
-                        </td>
-                        <td>
-                            <?= Html::encode("$mat->country") ?>
-                        </td>
-                        <td>
-                            <?= Html::encode("$mat->jinqiu") ?>
-                                个
-                        </td>
-                    </tr>
                     <?php endforeach;?>
-                </tbody>
-            </table>
-    </div>
-   
-<div class="col-lg-5 col-md-5">
+                </ul>
+            </div>
 
-          <table class="table table-striped" style="margin-top:0">
-              <?php PageHeadWidget::begin([
-            'text' => "助攻榜",
-            'hasBorder' => true,
-        ]) ?>
-                <thead>
-                    <tr>
-                        <th>
-                            球员姓名
-                        </th>
-                        <th>
-                            所属国家
-                        </th>
-                        <th>
-                            助攻数
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
 
-            foreach($zhugong as $mat): ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <?php PageHeadWidget::begin([
+                        'text' => "射手榜",
+                        'hasBorder' => true,
+                    ]) ?>
+                    <div class="page-wrap">
+                        <table class="table table-striped" style="margin-top:0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        球员姓名
+                                    </th>
+                                    <th>
+                                        所属国家
+                                    </th>
+                                    <th>
+                                        进球数
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($sheshou as $mat): ?>
+                                <tr>
+                                    <td>
+                                        <?= Html::beginTag('a',['href'=> "./?r=player%2Fview&id=".$mat->ID])?>
+                                            <?= Html::encode("$mat->name") ?>
+                                    </td>
+                                    <td>
+                                        <?= Html::encode("$mat->country") ?>
+                                    </td>
+                                    <td>
+                                        <?= Html::encode("$mat->jinqiu") ?>
+                                            个
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php PageHeadWidget::end()?>
+                </div>
 
-                    <tr>
-                        <td>
-                            <?= Html::beginTag('a',['href'=> "./?r=player%2Fview&id=".$mat->ID])?>
-                                <?= Html::encode("$mat->name") ?>
-                        </td>
-                        <td>
-                            <?= Html::encode("$mat->country") ?>
-                        </td>
-                        <td>
-                            <?= Html::encode("$mat->zhugong") ?>
-                                个
-                        </td>
-                    </tr>
-                    <?php endforeach;?>
-                </tbody>
-            </table>
-</div>
-   
-
-</div>
+                <div class="col-md-6">
+                    <?php PageHeadWidget::begin([
+                        'text' => "助攻榜",
+                        'hasBorder' => true,
+                    ]) ?>
+                    <div class="page-wrap">
+                        <table class="table table-striped" style="margin-top:0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        球员姓名
+                                    </th>
+                                    <th>
+                                        所属国家
+                                    </th>
+                                    <th>
+                                        助攻数
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($zhugong as $mat): ?>
+                                <tr>
+                                    <td>
+                                        <?= Html::beginTag('a',['href'=> "./?r=player%2Fview&id=".$mat->ID])?>
+                                            <?= Html::encode("$mat->name") ?>
+                                    </td>
+                                    <td>
+                                        <?= Html::encode("$mat->country") ?>
+                                    </td>
+                                    <td>
+                                        <?= Html::encode("$mat->zhugong") ?>
+                                            个
+                                    </td>
+                                </tr>
+                                <?php endforeach;?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php PageHeadWidget::end() ?>
+                </div>
+            </div>

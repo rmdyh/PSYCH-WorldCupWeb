@@ -1,3 +1,4 @@
+
 <?php
 
 use yii\helpers\Html;
@@ -12,43 +13,22 @@ $this->title = Yii::t('app', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
+        <script>
+            function deluser(id){
+                alert("you clicked here");
+                $.post("./?r=user/delete&id="+id, {'id' : id}, function(data){
+                    alert('success deleted!');
+                });
+            }
+        </script>
 
-    <script>
-        function deluser(id){
-            alert("you clicked here");
-            $.post("./?r=user/delete&id="+id, {}, function(data){
-                alert('success deleted!');
-            })
-        }
-    </script>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create User'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            'email:email',
-            'status',
-            'created_at',
-            'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 </div>
 
-<div class="admin-userspan" id="admin-userspan" style="padding:100px 40px; background: white">
+<div class="admin-userspan" id="admin-userspan" style="padding:10px 40px; ">
+
     <p class="text-center">
         User Admin
     </p>

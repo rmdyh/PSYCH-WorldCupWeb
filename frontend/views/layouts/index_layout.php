@@ -44,6 +44,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => 'ViewMe', 'url' => ["/user/view&id=" . Yii::$app->user->identity->ID]];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -60,7 +61,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="head-band jumbotron">
+    <div class="head-band">
         <div class="container">
             <h1>预留标题区域</h1>
         </div>
@@ -82,7 +83,7 @@ AppAsset::register($this);
                         $navTag=$navUrls[$i]['label'];
                         $navUrl=$navUrls[$i]['url'];
                         $options=['class'=>null];
-                        if(strpos($nowUrl,substr($navUrl,1,strlen($navUrl)-1))!==FALSE){
+                        if(strpos($nowUrl,substr($navUrl,2,strlen($navUrl)-2))!==FALSE){
                             Html::addCssClass($options, 'focusing');
                         }
                         echo Html::beginTag('li',$options);

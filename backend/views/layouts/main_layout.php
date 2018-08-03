@@ -361,7 +361,7 @@ AppAsset::register($this);
 
          
           <!-- sidebar progress bars -->
-          <li class="sidebar-label pt25 pb10">文章评论管理</li>
+          <li class="sidebar-label pt25 pb10">文章管理</li>
        <li>
             <a class="accordion-toggle" href="<?php echo Url::to(['department/index']) ?>">   
                     <span class="glyphicon glyphicon-fire"></span>
@@ -373,31 +373,8 @@ AppAsset::register($this);
                 <a href="<?php echo Url::to(['passage/index']) ?>">
                   <span class="glyphicon glyphicon-book"></span> 文章审核及文章内容删改</a>
               </li>
-              <li>
-                <a href="<?php echo Url::to(['passage/create']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 新增文章</a>
-              </li>
             </ul>
           </li>
-          <li>
-            <a class="accordion-toggle" href="<?php echo Url::to(['batch/index']) ?>">
-              <span class="glyphicon glyphicon-fire"></span>
-              <span class="sidebar-title">评论信息管理</span>
-              <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-              <li>
-                <a href="<?php echo Url::to(['comment/index']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 评论信息删改</a>
-              </li>
-              <li>
-                <a href="<?php echo Url::to(['comment/create']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 新增评论</a>
-              </li>
-            </ul>
-          </li>
-
-
 
            <li class="sidebar-label pt25 pb10">用户管理</li>
        <li>
@@ -409,39 +386,11 @@ AppAsset::register($this);
             <ul class="nav sub-nav">
               <li>
                 <a href="<?php echo Url::to(['user/index']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 用户登录信息编辑</a>
-              </li>
-               <li>
-                <a href="<?php echo Url::to(['useinfo/index']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 用户详细信息编辑</a>
-              </li>
-              <li>
-                <a href="<?php echo Url::to(['user/create']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 新增用户</a>
+                  <span class="glyphicon glyphicon-book"></span> 用户删除</a>
               </li>
             </ul>
           </li>
           <li>
-
-
-
-          <!--   用户状态管理不太知道怎么做 -->
-            <a class="accordion-toggle" href="<?php echo Url::to(['batch/index']) ?>">
-              <span class="glyphicon glyphicon-fire"></span>
-              <span class="sidebar-title">用户状态管理</span>
-              <span class="caret"></span>
-            </a>
-            <ul class="nav sub-nav">
-              <li>
-                <a href="<?php echo Url::to(['user/index']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 用户权限设置</a>
-              </li>
-              <li>
-                <a href="<?php echo Url::to(['player/create']) ?>">
-                  <span class="glyphicon glyphicon-book"></span> 用户禁言设置</a>
-              </li>
-            </ul>
-          </li>
          
          
         </ul>
@@ -546,7 +495,9 @@ AppAsset::register($this);
 
       <!-- Begin: Content -->
       <section id="content" class="table-layout animated fadeIn">
-        <?= $content ?>
+        <div class="container-fluid">
+          <?= $content ?>
+        </div>
       
       </section>
       <!-- End: Content -->

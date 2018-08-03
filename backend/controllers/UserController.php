@@ -15,6 +15,7 @@ use yii\data\Pagination;
  */
 class UserController extends Controller
 {
+    public $layout = "main_layout";
     /**
      * @inheritdoc
      */
@@ -36,7 +37,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $query = user::find();
+        $query = user::find()->where(['status'=>10]);
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $pagination = new Pagination([
@@ -110,10 +111,11 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        var_dump(Yii::$app->request->post());
-        $target = user::findone($id);
-        var_dump($target);
-        $target->status = 13; // 13 is think to be deleted condition.
+        $target = $this->findModel($id);
+        //var_dump(Yii::$app->request->post());
+        //$target = user::findone($id);
+        //var_dump($target);
+        $target->status = 0; // 13 is think to be deleted condition.
         $target->save();
         //$this->findModel($id)->delete();
 

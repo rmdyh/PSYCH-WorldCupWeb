@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class CommentController extends Controller
 {
+    public $layout = "main_layout";
     /**
      * @inheritdoc
      */

@@ -12,10 +12,10 @@ use yii\data\ActiveDataProvider;
 
 
 $this->title = '球员一览';
-$this->params['breadcrumbs'][] = $this->title;
                             
 ?>
-<?= Html::beginForm(['site/players'], 'get', ['enctype' => 'multipart/form-data','class'=>"form-inline"]) ?>
+<div class="margin-t-b">
+<?= Html::beginForm(['index'], 'get', ['enctype' => 'multipart/form-data','class'=>"form-inline"]) ?>
     <?php
         echo "球队检索:   "; 
         echo Html::activeDropDownList($model, 'country',array_merge([""=>"全部"], ArrayHelper::map($data,'country', 'country'))); 
@@ -30,16 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
 <input type="text" class="form-control" placeholder="Text input">
 <button class="btn btn-default" type="submit">确定</button-->
 <?= Html::endForm() ?>
+</div>
 
-
-<br>
-<br>
-<br>
 <?php foreach ($players as $label => $player): ?> 
- <?php PageHeadWidget::begin([
-            'text' => $label,
-            'hasBorder' => true,
-        ])?>
+    <?php PageHeadWidget::begin([
+        'text' => $label,
+        'hasBorder' => true,
+    ])?>
 
 <!-- <div class="team-group"> -->
 
@@ -70,7 +67,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif;
         endforeach;?>
     </div>
-    <?php endforeach;?>
+    <?php PageHeadWidget::end()?>
+<?php endforeach;?>
 
 
 

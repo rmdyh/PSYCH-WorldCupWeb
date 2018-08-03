@@ -15,41 +15,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Passage'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'ID',
-            'title',
-            'date',
-            'author_ID',
-            'author',
-            'content:ntext',
-            'status',
-            'seen',
-
-            // ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 </div>
 
-<div class="admin-psgspan">
-    <p class="text-center" style="font-size: 140%; color: #555;margin-top:8px;">
+<div class="admin-psgspan" style="margin-bottom:40px;">
+    <p class="text-center" style="font-size: 140%; color: #555;margin-top:8px; ">
         待审核文章
     </p>
     <hr>
     <table class="table table-hover">
         <thead><tr>
             <th>文章id</th>
-            <th>psg author</th>
-            <th>posttime</th>
-            <th>psg title</th>
-            <th>operation</th>
+            <th>文章作者</th>
+            <th>发表时间</th>
+            <th>文章标题</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -77,19 +56,18 @@ $this->params['breadcrumbs'][] = $this->title;
     </table>
 </div>
 
-<div class="admin-psgspan">
-    <div class="cut-bar"><hr>
-        <span style="font-size: 140%; color: #555;margin-top: -3px;">
-            已发表文章
-        </span>
-    </div>
+<div class="admin-psgspan" style="margin-bottom:40px;">
+    <p class="text-center" style="font-size: 140%; color: #555;margin-top:8px;">
+        通过文章
+    </p>
+    <hr>
     <table class="table table-hover">
         <thead><tr>
             <th>文章id</th>
-            <th>psg author</th>
-            <th>posttime</th>
-            <th>psg title</th>
-            <th>operation</th>
+            <th>文章作者</th>
+            <th>发表时间</th>
+            <th>文章标题</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -117,23 +95,22 @@ $this->params['breadcrumbs'][] = $this->title;
     </table>
 </div>
 
-<div class="admin-psgspan">
-    <div class="cut-bar"><hr>
-        <span style="font-size: 140%; color: #555;margin-top: -3px;">
-            未通过文章
-        </span>
-    </div>
+<div class="admin-psgspan" style="margin-bottom:40px;">
+    <p class="text-center" style="font-size: 140%; color: #555;margin-top:8px;">
+        未通过文章
+    </p>
+    <hr>
     <table class="table table-hover">
         <thead><tr>
             <th>文章id</th>
-            <th>psg author</th>
-            <th>posttime</th>
-            <th>psg title</th>
-            <th>operation</th>
+            <th>文章作者</th>
+            <th>发表时间</th>
+            <th>文章标题</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <?php $res = passage::find()->where(['status'=>'aborted'])->all();
+        <?php $res = passage::find()->where(['status'=>'abort'])->all();
         foreach($res as $cols):?>
             <tr>
                 <td>
