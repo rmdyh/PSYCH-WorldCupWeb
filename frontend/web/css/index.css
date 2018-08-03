@@ -8,7 +8,7 @@ body{
     padding: 160px 0 120px;
     margin: 0;
     background-image: url(../static/home_head_background.jpg);
-    background-size: auto 100%;
+    background-size: cover;
     background-position:center center;
 }
 

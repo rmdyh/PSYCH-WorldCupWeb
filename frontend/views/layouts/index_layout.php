@@ -43,7 +43,6 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = ['label' => 'ViewMe', 'url' => ['user/view&id=' . Yii::$app->user->identity->ID]];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -62,7 +61,7 @@ AppAsset::register($this);
 
     <div class="head-band">
         <div class="container">
-            <h1>预留标题区域</h1>
+            <h1>俄罗斯世界杯！2018！</h1>
         </div>
     </div>
 
@@ -76,7 +75,11 @@ AppAsset::register($this);
                         ['label'=>'球队一览','url'=>'./?r=team'],
                         ['label'=>'球员一览','url'=>'./?r=player'],
                         ['label'=>'热门文章','url'=>'./?r=passage'],
+
                     ];
+                    if(!Yii::$app->user->isGuest){
+                        $navUrls[] = ['label' => '用户信息', 'url' => '?r=user/view&id=' . Yii::$app->user->identity->ID];
+                    }
                     $nowUrl=Yii::$app->request->url;
                     for ($i=0;$i<count($navUrls);$i++) {
                         $navTag=$navUrls[$i]['label'];
