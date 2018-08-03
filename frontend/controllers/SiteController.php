@@ -324,6 +324,10 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionHomework(){
+        return $this->render('homework');
+    }
+
 }
   
 /*

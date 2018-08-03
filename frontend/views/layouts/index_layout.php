@@ -37,13 +37,13 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Homework', 'url' => ['/site/contact']],
-        ['label' => 'About', 'url' => ['/site/about']],
+        ['label' => 'Homework', 'url' => ['/site/homework']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
+        $menuItems[] = ['label' => 'ViewMe', 'url' => ['user/view&id=' . Yii::$app->user->identity->ID]];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
