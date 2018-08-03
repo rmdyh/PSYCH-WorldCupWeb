@@ -104,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <!--Featured 3 Slider End-->
                 <!--Kf Pagination Start-->
-                <div class="kode-pagination text-center">
+                <!-- <div class="kode-pagination text-center">
                     <span class="page-numbers current">1</span>
                     <a class="page-numbers" href="#">2</a>
                     <a class="page-numbers" href="#">3</a>
@@ -112,7 +112,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a class="page-numbers" href="#">18</a>
                     <a class="page-numbers" href="#">19</a>
                     <a class="page-numbers" href="#">20</a>
-                </div>
+                </div> -->
                 <!--Kf Pagination End-->
             </div>
         </section>

@@ -159,7 +159,7 @@ $this->title=$model->title;
             <div class="media" ">
                 <div class="media-left ">
                     <a href="# ">
-                        <img class="media-object " src="... " alt="... "> <!--source is users/img-->
+                        <img class="media-object " src="../web/images/team_logo.png " alt="... "> <!--source is users/img-->
                     </a>
                 </div>
                 <div class="media-body ">

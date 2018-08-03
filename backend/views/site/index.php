@@ -11,11 +11,11 @@ $this->title = 'My Yii Application';
         <h1>PSYCH-WorldCupWeb</h1>
         <div class="col-lg-4">
         <h2>小组成员</h2>
+        <h3>1611309 卢政先</h3>
         <h3>1611532 刘一静</h3>
-        <h3>1611532 刘一静</h3>
-        <h3>1611532 刘一静</h3>
-        <h3>1611532 刘一静</h3>
-        <h3>1611532 刘一静</h3>
+        <h3>1610625 文周之</h3>
+        <h3>1611512 徐子越</h3>
+        <h3>1611499 黄祎</h3>
     </div>
     <div class="col-lg-8">
          <img class="hidden-xs" src="http://upload.mnw.cn/2014/1029/1414567505431.jpg">
