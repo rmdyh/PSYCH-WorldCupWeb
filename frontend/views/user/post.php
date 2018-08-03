@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
     <div class="psg-msg" style="color: darkgrey">
         <p> author: <?= $model->author?> posttime: <?= $model->date?></p>
     </div>
-    <?php $form = ActiveForm::begin(['action' => '?r=passage/editpost&id='.$model->ID]);
+    <?php $form = ActiveForm::begin(['action' => '?r=user/editpost&id='.$model->ID]);
     //echo "<li></li>";
     echo $form->field($model, 'title')->textInput();// textarea;
     echo $form->field($model, 'ID')->textInput()->hiddenInput(['value'=>$model->ID])->label(false);
