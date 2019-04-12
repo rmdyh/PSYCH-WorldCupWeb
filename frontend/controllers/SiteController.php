@@ -296,37 +296,7 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionPlayers()
-    {
-        $searchModel = new PlayerSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        
-        $players=array();
-        foreach ($dataProvider->getModels() as $player) {
-            if(!isset($players[$player->country])){
-                $players[$player->country]=array();
-            }
-            array_push($players[$player->country],$player);
-        }
-
-        return $this->render('players',[
-            'players'=>$players,
-            'model' => $searchModel,
-            'data'=>$dataProvider->getModels(),
-        ]);
-
-    } 
-    public function actionNews()
-    {
-        $passage=Passage::find()->all();
-        return $this->render('news',[
-            'passage'=>$passage,
-        ]);
-    }
-
-    public function actionHomework(){
-        return $this->render('homework');
-    }
+    
 
 }
   
